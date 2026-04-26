@@ -4,8 +4,7 @@ import AuthorImage from "../../images/author_thumbnail.jpg";
 import nftImage from "../../images/nftImage.jpg";
 import axios from "axios";
 
-
-
+// Does this work?
 
 const HotCollections = () => {
 const { id } = useParams();
