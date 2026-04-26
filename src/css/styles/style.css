@@ -60,7 +60,7 @@ body.boxed {
   border: solid 1px #eee;
 }
 
-body .owl-stage .owl-item {
+body .owl-stage .owl-item {  
   margin-bottom: 15px;
 }
 
@@ -13206,7 +13206,7 @@ a.read_more i {
 .nft_wrap {
   position: relative;
   width: 100%;
-  height: 200px;
+  height: auto;
   overflow: hidden;
   border-radius: 10px 10px 0 0;
   -moz-border-radius: 10px 10px 0 0;

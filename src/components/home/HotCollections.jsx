@@ -1,18 +1,35 @@
 import React, { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
 import AuthorImage from "../../images/author_thumbnail.jpg";
 import nftImage from "../../images/nftImage.jpg";
 import axios from "axios";
+import OwlCarousel from 'react-owl-carousel';
+import 'owl.carousel/dist/assets/owl.carousel.css';
+import 'owl.carousel/dist/assets/owl.theme.default.css';
+import { Link } from "react-router-dom";
 
-// Does this work?
+
+
+  const options = {
+    loop: false,
+    margin: 10,
+    nav: true,
+    dots: true, // You can simulate a scrollbar by styling these dots
+    responsive: {
+      0: { items: 1 },
+      600: { items: 3 },
+      1000: { items: 5 }
+    }
+};
+  
+
 
 const HotCollections = () => {
-const { id } = useParams();
 const [hotcollections, setHotcollections] = React.useState([]);
+
 
 useEffect(() => {
 async function fetchHotCollections() {
-const { data } = await axios.get(`https://us-central1-nft-cloud-functions.cloudfunctions.net/hotCollections?=${id}`)
+const { data } = await axios.get(`https://us-central1-nft-cloud-functions.cloudfunctions.net/hotCollections`)
 setHotcollections(data)
 }
 fetchHotCollections();
@@ -27,6 +44,7 @@ fetchHotCollections();
               <div className="small-border bg-color-2"></div>
             </div>
           </div>
+          <OwlCarousel className="owl-theme" {...options}>
           {hotcollections.map((item, index) => (
             <div className="col-lg-3 col-md-6 col-sm-6 col-xs-12" key={index}>
               <div className="nft_coll">
@@ -48,8 +66,9 @@ fetchHotCollections();
                   <span>{item.code}</span>
                 </div>
               </div>
-            </div>
+            </div>            
           ))}
+        </OwlCarousel>
         </div>
       </div>
     </section>
