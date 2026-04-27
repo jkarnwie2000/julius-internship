@@ -1,0 +1,93 @@
+* Carousel item spacing */
+.collections-carousel .slick-slide {
+  padding: 0 15px;
+}
+
+.collections-carousel .slick-slide > div {
+  margin: 0;
+}
+
+/* Navigation arrows styling */
+.collections-carousel .slick-prev,
+.collections-carousel .slick-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+  width: 45px;
+  height: 45px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 2px solid #f70d1a;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 18px;
+  color: #f70d1a;
+}
+
+.collections-carousel .slick-prev {
+  left: -25px;
+}
+
+.collections-carousel .slick-next {
+  right: -25px;
+}
+
+.slick-prev,
+.slick-prev:before,
+.slick-next,
+.slick-next:before {
+  color: black;
+  border: none !important;
+}
+
+.slick-arrow .fa-angle-left,
+.slick-arrow .fa-angle-right {
+  display: none !important;
+}
+
+.collections-carousel .slick-prev:hover,
+.collections-carousel .slick-next:hover {
+  /* background: #f70d1a; */
+  color: white;
+  border-color: #f70d1a;
+}
+
+.collections-carousel .slick-prev i,
+.collections-carousel .slick-next i {
+  font-size: 16px;
+  margin: 0;
+}
+
+/* Hide arrows on smaller screens */
+@media (max-width: 1200px) {
+  .collections-carousel .slick-prev {
+    left: 10px;
+  }
+
+  .collections-carousel .slick-next {
+    right: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .collections-carousel .slick-prev,
+  .collections-carousel .slick-next {
+    width: 35px;
+    height: 35px;
+    font-size: 14px;
+  }
+
+  .collections-carousel .slick-prev i,
+  .collections-carousel .slick-next i {
+    font-size: 12px;
+  }
+}
+
+/* Ensure proper spacing for the container */
+.collections-carousel {
+  margin: 0 -15px;
+}
