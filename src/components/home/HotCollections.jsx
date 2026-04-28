@@ -4,9 +4,6 @@ import AuthorImage from "../../images/author_thumbnail.jpg";
 import nftImage from "../../images/nftImage.jpg";
 import axios from "axios";
 
-
-
-
 const HotCollections = () => {
 const { id } = useParams();
 const [hotcollections, setHotcollections] = React.useState([]);
@@ -16,6 +13,7 @@ async function fetchHotCollections() {
 const { data } = await axios.get(`https://us-central1-nft-cloud-functions.cloudfunctions.net/hotCollections?=${id}`)
 setHotcollections(data)
 }
+// happy am I
 fetchHotCollections();
 }, [])
   return (
