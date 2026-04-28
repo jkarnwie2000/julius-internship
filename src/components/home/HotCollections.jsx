@@ -8,11 +8,10 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./HotCollections.css";
 
-// I am happy.
-
 const HotCollections = () => {
   const { id } = useParams();
   const [hotcollections, setHotcollections] = React.useState([]);
+  const [loading, setLoading] = React.useState(true);
 
   useEffect(() => {
     async function fetchHotCollections() {
@@ -20,6 +19,7 @@ const HotCollections = () => {
         `https://us-central1-nft-cloud-functions.cloudfunctions.net/hotCollections?=${id}`,
       );
       setHotcollections(data);
+      setLoading(false);
     }
     fetchHotCollections();
   }, [id]);
@@ -81,9 +81,18 @@ const HotCollections = () => {
               <h2>Hot Collections</h2>
               <div className="small-border bg-color-2"></div>
             </div>
-          </div>
+          </div>          
           <Slider {...settings} className="collections-carousel">
-            {hotcollections.map((item, index) => (
+            {loading
+              ? new Array(4).fill(0).map((_, index) => (
+                  <div className="hotcollections" key={index}>
+                    <div className="hotcollections__title--skeleton"></div>
+                    <div className="hotcollections__authorImage--skeleton"></div>
+                    <div className="hotcollections__code--skeleton"></div>
+                    <div className="hotcollections__nftImage--skeleton"></div>
+                  </div>
+                ))
+              : (hotcollections.map((item, index) => (
               <div key={index}>
                 <div className="nft_coll">
                   <div className="nft_wrap">
@@ -94,7 +103,7 @@ const HotCollections = () => {
                         alt=""
                       />
                     </Link>
-                  </div>
+                  </div>           
                   <div className="nft_coll_pp">
                     <Link to="/author">
                       <img
@@ -113,7 +122,7 @@ const HotCollections = () => {
                   </div>
                 </div>
               </div>
-            ))}
+              )))}
           </Slider>
         </div>
       </div>
