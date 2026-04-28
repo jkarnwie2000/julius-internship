@@ -10,6 +10,38 @@
   height: auto;
 }
 
+/* SKELETON LOADING STATE */
+
+.hotcollections__nftImage--skeleton {
+  width: 100%;
+  height: 200px;
+  background-color: #e5e5e5;
+  border-radius: 8px;
+}
+
+.hotcollections__authorImage--skeleton {
+  width: 50px;
+  height: 50px;
+  background-color: #e5e5e5;
+  border-radius: 50%;
+}
+
+.hotcollections__title--skeleton {
+  width: 70%;
+  height: 20px;
+  background-color: #e5e5e5;
+  margin-bottom: 10px;
+  border-radius: 4px;
+}
+
+.hotcollections__code--skeleton {
+  width: 40%;
+  height: 16px;
+  background-color: #e5e5e5;
+  border-radius: 4px;
+}
+/* SKELETON LOADING STATE */
+
 /* Center mode styling for mobile */
 .collections-carousel .slick-center .nft_coll {
   transform: scale(1.05);
