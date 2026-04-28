@@ -13,7 +13,7 @@ async function fetchHotCollections() {
 const { data } = await axios.get(`https://us-central1-nft-cloud-functions.cloudfunctions.net/hotCollections?=${id}`)
 setHotcollections(data)
 }
-// happy am I
+// Julius is good.
 fetchHotCollections();
 }, [])
   return (
