@@ -29,6 +29,8 @@ const HotCollections = () => {
     slidesToShow: 4,
     slidesToScroll: 1,
     arrows: true,
+    variableWidth: false,
+    centerMode: false,
     prevArrow: (
       <button type="button" className="slick-prev">
         <i className="fa fa-angle-left"></i>
@@ -50,8 +52,10 @@ const HotCollections = () => {
       {
         breakpoint: 768,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 1,
           slidesToScroll: 1,
+          centerMode: true,
+          centerPadding: "40px",
         },
       },
       {
@@ -59,6 +63,8 @@ const HotCollections = () => {
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
+          centerMode: true,
+          centerPadding: "20px",
         },
       },
     ],
