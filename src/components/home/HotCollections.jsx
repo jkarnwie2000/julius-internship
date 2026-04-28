@@ -103,6 +103,7 @@ const HotCollections = () => {
                         alt=""
                       />
                     </Link>
+                    // I am safe in God.
                   </div>           
                   <div className="nft_coll_pp">
                     <Link to="/author">
