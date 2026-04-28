@@ -86,10 +86,10 @@ const HotCollections = () => {
             {loading
               ? new Array(4).fill(0).map((_, index) => (
                   <div className="hotcollections" key={index}>
-                    <div className="hotcollections__title--skeleton"></div>
-                    <div className="hotcollections__authorImage--skeleton"></div>
-                    <div className="hotcollections__code--skeleton"></div>
                     <div className="hotcollections__nftImage--skeleton"></div>
+                    <div className="hotcollections__authorImage--skeleton"></div>
+                    <div className="hotcollections__title--skeleton"></div>                    
+                    <div className="hotcollections__code--skeleton"></div>                    
                   </div>
                 ))
               : (hotcollections.map((item, index) => (
