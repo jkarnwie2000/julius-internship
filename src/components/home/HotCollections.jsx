@@ -8,6 +8,8 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./HotCollections.css";
 
+// I am happy.
+
 const HotCollections = () => {
   const { id } = useParams();
   const [hotcollections, setHotcollections] = React.useState([]);
