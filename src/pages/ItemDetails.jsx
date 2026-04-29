@@ -7,49 +7,51 @@ import axios from "axios";
 
 const ItemDetails = () => {
 const { id } = useParams();
-const [itemdetails, setItemdetails] = React.useState([]);
+const [itemdetails, setItemdetails] = React.useState(null);
 const [loading, setLoading] = React.useState(true);
 
 useEffect(() => {
-async function fetchItemDetails() {
-const { data } = await axios.get(
-        `https://us-central1-nft-cloud-functions.cloudfunctions.net/hotCollections?=${id}`,
-      );
-setItemdetails(data);
-console.log(data)
-setLoading(false);
-}
-fetchItemDetails();  
-    window.scrollTo(0, 0);
-  }, []);
+  async function fetchItemDetails() {
+    const { data } = await axios.get(
+      `https://us-central1-nft-cloud-functions.cloudfunctions.net/hotCollections`
+    );
 
-  return (
+    const selectedItem = data.find((item) => item.id === Number(id));
+
+    setItemdetails(selectedItem);
+    setLoading(false);
+  }
+  fetchItemDetails();
+  window.scrollTo(0, 0);
+}, [id]);
+return (
     <div id="wrapper">
       <div className="no-bottom no-top" id="content">
         <div id="top"></div>
         {loading
-              ? new Array().fill(0).map((_, index) => (
+              ? new Array(4).fill(0).find((_, index) => (
                   <div className="hotcollections" key={index}>
                     <div className="hotcollections__nftImage--skeleton"></div>
                     <div className="hotcollections__authorImage--skeleton"></div>
                     <div className="hotcollections__title--skeleton"></div>                    
                     <div className="hotcollections__code--skeleton"></div>                    
                   </div>
-                )) : (itemdetails.map((item, index) => (
+                )) : !loading && itemdetails && (
         <section aria-label="section" className="mt90 sm-mt-0">
           <div className="container">
             <div className="row">
               <div className="col-md-6 text-center">
+                <Link to={`/item-details/${itemdetails.id}`}>
                 <img
-                  src={item.nftImage}
+                  src={itemdetails.nftImage}
                   className="img-fluid img-rounded mb-sm-30 nft-image"
                   alt=""
                 />
-              </div>
+                </Link>
+              </div>              
               <div className="col-md-6">
                 <div className="item_info">
                   <h2>Rainbow Style #194</h2>
-
                   <div className="item_info_counts">
                     <div className="item_info_views">
                       <i className="fa fa-eye"></i>
@@ -71,7 +73,7 @@ fetchItemDetails();
                       <div className="item_author">
                         <div className="author_list_pp">
                           <Link to="/author">
-                            <img className="lazy" src={item.authorImage} alt="" />
+                            <img className="lazy" src={itemdetails.authorImage} alt="" />
                             <i className="fa fa-check"></i>
                           </Link>
                         </div>
@@ -88,7 +90,7 @@ fetchItemDetails();
                       <div className="item_author">
                         <div className="author_list_pp">
                           <Link to="/author">
-                            <img className="lazy" src={item.authorImage} alt="" />
+                            <img className="lazy" src={itemdetails.authorImage} alt="" />
                             <i className="fa fa-check"></i>
                           </Link>
                         </div>
@@ -100,15 +102,17 @@ fetchItemDetails();
                     <div className="spacer-40"></div>
                     <h6>Price</h6>
                     <div className="nft-item-price">
-                      <img src={item.ethImage} alt="" />
+                    <Link to={`/item-details/${itemdetails.id}`}>  
+                      <img src={itemdetails.ethImage} alt="" />
                       <span>1.85</span>
+                    </Link>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </section>) ) )}
+        </section>) }
       </div>
     </div>
   );
