@@ -30,11 +30,11 @@ return (
         <div id="top"></div>
         {loading
               ? new Array(4).fill(0).find((_, index) => (
-                  <div className="hotcollections" key={index}>
-                    <div className="hotcollections__nftImage--skeleton"></div>
-                    <div className="hotcollections__authorImage--skeleton"></div>
-                    <div className="hotcollections__title--skeleton"></div>                    
-                    <div className="hotcollections__code--skeleton"></div>                    
+                  <div className="itemdetails" key={index}>
+                    <div className="itemdetails__nftImage--skeleton"></div>
+                    <div className="itemdetails__authorImage--skeleton"></div>
+                    <div className="itemdetails__title--skeleton"></div>                    
+                    <div className="itemdetails__code--skeleton"></div>                    
                   </div>
                 )) : !loading && itemdetails && (
         <section aria-label="section" className="mt90 sm-mt-0">
