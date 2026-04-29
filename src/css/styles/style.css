@@ -13170,7 +13170,7 @@ a.read_more i {
 .img-fullwidth {
   width: 100%;
   height: auto;
-}
+}  
 
 .nft_coll {
   background: #ffffff;
@@ -13180,7 +13180,7 @@ a.read_more i {
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
   margin-bottom: 10px;
-}
+} 
 
 .nft_coll.style-2 {
   border: none;
@@ -13212,10 +13212,6 @@ a.read_more i {
 
 .owl-carousel .owl-item {
   min-height: 250px;
-}
-
-.nft_coll {
-  width: 100%;
 }
 
 .nft_wrap a {
@@ -13270,6 +13266,7 @@ a.read_more i {
   margin-bottom: 10px;
   position: relative;
 }
+
 
 .nft_coll_pp img {
   width: 60px;

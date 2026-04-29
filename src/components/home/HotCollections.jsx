@@ -102,8 +102,7 @@ const HotCollections = () => {
                         className="lazy img-fluid"
                         alt=""
                       />
-                    </Link>
-                    // I am safe in God.
+                    </Link>                    
                   </div>           
                   <div className="nft_coll_pp">
                     <Link to="/author">
