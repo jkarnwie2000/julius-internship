@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import AuthorImage from "../../images/author_thumbnail.jpg";
 import nftImage from "../../images/nftImage.jpg";
+import Slider from "react-slick";
 import axios from "axios";
-
 
 
 const NewItems = () => {
@@ -23,6 +23,54 @@ setLoading(false);
 }
 fetchNewItems();
 }, [])
+
+const settings = {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    arrows: true,
+    variableWidth: false,
+    centerMode: false,
+    prevArrow: (
+      <button type="button" className="slick-prev">
+        <i className="fa fa-angle-left"></i>
+      </button>
+    ),
+    nextArrow: (
+      <button type="button" className="slick-next">
+        <i className="fa fa-angle-right"></i>
+      </button>
+    ),
+    responsive: [
+      {
+        breakpoint: 992,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          centerMode: true,
+          centerPadding: "40px",
+        },
+      },
+      {
+        breakpoint: 576,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          centerMode: true,
+          centerPadding: "20px",
+        },
+      },
+    ],
+  };
 
 return (
     <section id="section-items" className="no-bottom">
@@ -46,7 +94,7 @@ return (
                 ))
 
              : (newitems.map((item, index) => ( 
-            <div className="col-lg-3 col-md-6 col-sm-6 col-xs-12" key={index}>
+            <div key={index}>
               <div className="nft__item">
                 <div className="author_list_pp">
                   <Link
