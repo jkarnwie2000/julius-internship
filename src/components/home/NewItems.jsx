@@ -3,24 +3,25 @@ import { Link, useParams } from "react-router-dom";
 import AuthorImage from "../../images/author_thumbnail.jpg";
 import nftImage from "../../images/nftImage.jpg";
 import axios from "axios";
-import { data } from "jquery";
 
 
 
 const NewItems = () => {
 const { id } = useParams();
-const [newitems, setNewitems] = React.useState();
+const [newitems, setNewitems] = React.useState([]);
 const [loading, setLoading] = React.useState(true)
 
 useEffect(() => {
 async function fetchNewItems() {
 const { data } = await axios.get(
-  `https://us-central1-nft-cloud-functions.cloudfunctions.net/newItems?=${id}`)
-console.log(data);
-}
+  `https://us-central1-nft-cloud-functions.cloudfunctions.net/newItems?=${id}`
+
+)
+console.log(data)
 setNewitems(data);
 setLoading(false);
-
+}
+fetchNewItems();
 }, [])
 
 return (
@@ -33,7 +34,18 @@ return (
               <div className="small-border bg-color-2"></div>
             </div>
           </div>
-          {new Array(6).fill(0).map((_, index) => (
+          <Slider {...settings} className="collections-carousel">                   
+          {loading
+          ? new Array(4).fill(0).map((_, index) => (            
+                  <div className="newitems" key={index}>
+                    <div className="newitems__nftImage--skeleton"></div>
+                    <div className="newitems__authorImage--skeleton"></div>
+                    <div className="newitems__title--skeleton"></div>                    
+                    <div className="newitems__code--skeleton"></div>                    
+                  </div>
+                ))
+
+             : (newitems.map((item, index) => ( 
             <div className="col-lg-3 col-md-6 col-sm-6 col-xs-12" key={index}>
               <div className="nft__item">
                 <div className="author_list_pp">
@@ -43,11 +55,10 @@ return (
                     data-bs-placement="top"
                     title="Creator: Monica Lucas"
                   >
-                    <img className="lazy" src={AuthorImage} alt="" />
+                    <img className="lazy" src={item.authorImage} alt="" />
                     <i className="fa fa-check"></i>
                   </Link>
                 </div>
-
                 
                 <div className="de_countdown">
                 <span className="timer__minutes">1h</span>
@@ -56,7 +67,6 @@ return (
                 
                 <span className="timer__milliseconds"> 00</span>
                 </div>
-
 
                 <div className="nft__item_wrap">
                   <div className="nft__item_extra">
@@ -79,7 +89,7 @@ return (
 
                   <Link to="/item-details">
                     <img
-                      src={nftImage}
+                      src={item.nftImage}
                       className="lazy nft__item_preview"
                       alt=""
                     />
@@ -87,7 +97,7 @@ return (
                 </div>
                 <div className="nft__item_info">
                   <Link to="/item-details">
-                    <h4>Pinky Ocean</h4>
+                    <h4>{item.title}</h4>
                   </Link>
                   <div className="nft__item_price">3.08 ETH</div>
                   <div className="nft__item_like">
@@ -97,7 +107,8 @@ return (
                 </div>
               </div>
             </div>
-          ))}
+          )))}
+          </Slider>
         </div>
       </div>
     </section>
