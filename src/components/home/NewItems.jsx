@@ -3,6 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import AuthorImage from "../../images/author_thumbnail.jpg";
 import nftImage from "../../images/nftImage.jpg";
 import Slider from "react-slick";
+import "./NewItems.css";
 import axios from "axios";
 
 
@@ -17,12 +18,33 @@ const { data } = await axios.get(
   `https://us-central1-nft-cloud-functions.cloudfunctions.net/newItems?=${id}`
 
 )
-console.log(data)
 setNewitems(data);
 setLoading(false);
 }
 fetchNewItems();
-}, [])
+}, []);
+
+const [timeLeft, setTimeLeft] = useState(2 * 60 * 60 + 43 * 60 + 14);
+
+useEffect(() => {
+  const interval = setInterval(() => {
+    setTimeLeft((prevTime) => {
+      if (prevTime <= 0) {
+        clearInterval(interval);
+        return 0;
+      }
+
+      return prevTime - 1;
+    });
+  }, 1000);
+
+  return () => clearInterval(interval);
+}, []);
+
+const hours = Math.floor(timeLeft / 3600);
+const minutes = Math.floor((timeLeft % 3600) / 60);
+const seconds = timeLeft % 60;
+
 
 const settings = {
     dots: false,
@@ -72,6 +94,7 @@ const settings = {
     ],
   };
 
+
 return (
     <section id="section-items" className="no-bottom">
       <div className="container">
@@ -106,16 +129,10 @@ return (
                     <img className="lazy" src={item.authorImage} alt="" />
                     <i className="fa fa-check"></i>
                   </Link>
-                </div>
-                
+                </div>                
                 <div className="de_countdown">
-                <span className="timer__minutes">1h</span>
-                
-                <span className="timer__seconds"> 05m</span>
-                
-                <span className="timer__milliseconds"> 00</span>
+                  {hours}h {minutes}m {seconds}s
                 </div>
-
                 <div className="nft__item_wrap">
                   <div className="nft__item_extra">
                     <div className="nft__item_buttons">
