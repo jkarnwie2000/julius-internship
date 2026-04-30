@@ -1,10 +1,29 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, useParams } from "react-router-dom";
 import AuthorImage from "../../images/author_thumbnail.jpg";
 import nftImage from "../../images/nftImage.jpg";
+import axios from "axios";
+import { data } from "jquery";
+
+
 
 const NewItems = () => {
-  return (
+const { id } = useParams();
+const [newitems, setNewitems] = React.useState();
+const [loading, setLoading] = React.useState(true)
+
+useEffect(() => {
+async function fetchNewItems() {
+const { data } = await axios.get(
+  `https://us-central1-nft-cloud-functions.cloudfunctions.net/newItems?=${id}`)
+console.log(data);
+}
+setNewitems(data);
+setLoading(false);
+
+}, [])
+
+return (
     <section id="section-items" className="no-bottom">
       <div className="container">
         <div className="row">
@@ -14,7 +33,7 @@ const NewItems = () => {
               <div className="small-border bg-color-2"></div>
             </div>
           </div>
-          {new Array(4).fill(0).map((_, index) => (
+          {new Array(6).fill(0).map((_, index) => (
             <div className="col-lg-3 col-md-6 col-sm-6 col-xs-12" key={index}>
               <div className="nft__item">
                 <div className="author_list_pp">
@@ -28,7 +47,16 @@ const NewItems = () => {
                     <i className="fa fa-check"></i>
                   </Link>
                 </div>
-                <div className="de_countdown">5h 30m 32s</div>
+
+                
+                <div className="de_countdown">
+                <span className="timer__minutes">1h</span>
+                
+                <span className="timer__seconds"> 05m</span>
+                
+                <span className="timer__milliseconds"> 00</span>
+                </div>
+
 
                 <div className="nft__item_wrap">
                   <div className="nft__item_extra">

@@ -16,8 +16,6 @@ useEffect(() => {
       `https://us-central1-nft-cloud-functions.cloudfunctions.net/hotCollections`
     );
 
-    // Julius is rich
-
     const selectedItem = data.find((item) => item.id === Number(id));
 
     setItemdetails(selectedItem);
