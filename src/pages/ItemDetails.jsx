@@ -6,24 +6,22 @@ import nftImage from "../images/nftImage.jpg";
 import axios from "axios";
 
 const ItemDetails = () => {
-const { id } = useParams();
+const { id: nftId } = useParams();
 const [itemdetails, setItemdetails] = React.useState(null);
 const [loading, setLoading] = React.useState(true);
 
 useEffect(() => {
   async function fetchItemDetails() {
     const { data } = await axios.get(
-      `https://us-central1-nft-cloud-functions.cloudfunctions.net/hotCollections`
+      `https://us-central1-nft-cloud-functions.cloudfunctions.net/itemDetails?nftId=${nftId}`
     );
 
-    const selectedItem = data.find((item) => item.id === Number(id));
-
-    setItemdetails(selectedItem);
+    setItemdetails(data);
     setLoading(false);
   }
   fetchItemDetails();
   window.scrollTo(0, 0);
-}, [id]);
+}, [nftId]);
 return (
     <div id="wrapper">
       <div className="no-bottom no-top" id="content">
