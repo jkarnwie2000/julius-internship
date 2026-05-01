@@ -1,9 +1,7 @@
-import React, { useEffect, useState } from "react";
-import EthImage from "../images/ethereum.svg";
+import React, { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
-import AuthorImage from "../images/author_thumbnail.jpg";
-import nftImage from "../images/nftImage.jpg";
 import axios from "axios";
+import ItemDetailsSkeleton from "../components/UI/ItemDetailsSkeleton";
 
 const ItemDetails = () => {
 const { id: nftId } = useParams();
@@ -12,13 +10,19 @@ const [loading, setLoading] = React.useState(true);
 
 useEffect(() => {
   async function fetchItemDetails() {
-    const { data } = await axios.get(
-      `https://us-central1-nft-cloud-functions.cloudfunctions.net/itemDetails?nftId=${nftId}`
-    );
-
-    setItemdetails(data);
-    setLoading(false);
+    setLoading(true);
+    try {
+      const { data } = await axios.get(
+        `https://us-central1-nft-cloud-functions.cloudfunctions.net/itemDetails?nftId=${nftId}`
+      );
+      setItemdetails(data);
+    } catch (error) {
+      setItemdetails(null);
+    } finally {
+      setLoading(false);
+    }
   }
+
   fetchItemDetails();
   window.scrollTo(0, 0);
 }, [nftId]);
@@ -26,15 +30,10 @@ return (
     <div id="wrapper">
       <div className="no-bottom no-top" id="content">
         <div id="top"></div>
-        {loading
-              ? new Array(4).fill(0).find((_, index) => (
-                  <div className="hotcollections" key={index}>
-                    <div className="hotcollections__nftImage--skeleton"></div>
-                    <div className="hotcollections__authorImage--skeleton"></div>
-                    <div className="hotcollections__title--skeleton"></div>                    
-                    <div className="hotcollections__code--skeleton"></div>                    
-                  </div>
-                )) : !loading && itemdetails && (
+        {loading ? (
+          <ItemDetailsSkeleton />
+        ) : (
+          itemdetails && (
         <section aria-label="section" className="mt90 sm-mt-0">
           <div className="container">
             <div className="row">
@@ -53,30 +52,28 @@ return (
                   <div className="item_info_counts">
                     <div className="item_info_views">
                       <i className="fa fa-eye"></i>
-                      100
+                      {itemdetails.views}
                     </div>
                     <div className="item_info_like">
                       <i className="fa fa-heart"></i>
-                      74
+                      {itemdetails.likes}
                     </div>
                   </div>
-                  <p>
-                    doloremque laudantium, totam rem aperiam, eaque ipsa quae ab
-                    illo inventore veritatis et quasi architecto beatae vitae
-                    dicta sunt explicabo.
-                  </p>
+                  <p>{itemdetails.description}</p>
                   <div className="d-flex flex-row">
                     <div className="mr40">
                       <h6>Owner</h6>
                       <div className="item_author">
                         <div className="author_list_pp">
-                          <Link to="/author">
+                          <Link to={`/author/${itemdetails.ownerId}`}>
                             <img className="lazy" src={itemdetails.authorImage} alt="" />
                             <i className="fa fa-check"></i>
                           </Link>
                         </div>
                         <div className="author_list_info">
-                          <Link to="/author">Monica Lucas</Link>
+                          <Link to={`/author/${itemdetails.ownerId}`}>
+                          {itemdetails.ownerName}
+                          </Link>
                         </div>
                       </div>
                     </div>
@@ -87,13 +84,15 @@ return (
                       <h6>Creator</h6>
                       <div className="item_author">
                         <div className="author_list_pp">
-                          <Link to="/author">
-                            <img className="lazy" src={itemdetails.authorImage} alt="" />
+                          <Link to={`/author/${itemdetails.creatorId}`}> 
+                          <img className="lazy" src={itemdetails.authorImage} alt="" />
                             <i className="fa fa-check"></i>
                           </Link>
                         </div>
                         <div className="author_list_info">
-                          <Link to="/author">Monica Lucas</Link>
+                          <Link to={`/author/${itemdetails.creatorId}`}>
+                          {itemdetails.creatorName}
+                          </Link>
                         </div>
                       </div>
                     </div>
@@ -102,7 +101,7 @@ return (
                     <div className="nft-item-price">
                     <Link to={`/item-details/${itemdetails.id}`}>  
                       <img src={itemdetails.ethImage} alt="" />
-                      <span>1.85</span>
+                      <span>{itemdetails.price}</span>
                     </Link>
                     </div>
                   </div>
@@ -110,7 +109,9 @@ return (
               </div>
             </div>
           </div>
-        </section>) }
+        </section>
+          )
+        )}
       </div>
     </div>
   );
