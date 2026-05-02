@@ -56,19 +56,17 @@ const ItemDetails = () => {
             <section aria-label="section" className="mt90 sm-mt-0">
               <div className="container">
                 <div className="row">
-                  <div className="col-md-6 text-center">
-                    <Link to={`/item-details/${itemdetails.id}`}>
+                  <div className="col-md-6 text-center">                    
                       <img
                         src={getImageSrc(itemdetails.nftImage)}
                         className="img-fluid img-rounded mb-sm-30 nft-image"
                         alt={itemdetails.title}
-                      />
-                    </Link>
+                      />               
                   </div>
 
                   <div className="col-md-6">
                     <div className="item_info">
-                      <h2>{itemdetails.title}</h2>
+                      <h2>{itemdetails.title} #{nftId}</h2>
 
                       <div className="item_info_counts">
                         <div className="item_info_views">
@@ -137,11 +135,9 @@ const ItemDetails = () => {
 
                         <h6>Price</h6>
 
-                        <div className="nft-item-price">
-                          <Link to={`/item-details/${itemdetails.id}`}>
+                        <div className="nft-item-price">                          
                             <img src={ethereumIcon} alt="ETH" />
-                            <span>{itemdetails.price}</span>
-                          </Link>
+                            <span>{itemdetails.price}</span>                          
                         </div>
                       </div>
                     </div>
