@@ -94,7 +94,7 @@ const settings = {
     ],
   };
 
-
+//Julius Gold is Wealthy
 return (
     <section id="section-items" className="no-bottom">
       <div className="container">
@@ -115,7 +115,6 @@ return (
                     <div className="newitems__code--skeleton"></div>                    
                   </div>
                 ))
-
              : (newitems.map((item, index) => ( 
             <div key={index}>
               <div className="nft__item">
