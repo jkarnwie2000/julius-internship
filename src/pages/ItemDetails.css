@@ -3,4 +3,17 @@
   height: 200px;
   background-color: #e5e5e5;
   border-radius: 8px;
+} 
+
+ .nft-image{
+  pointer-events: none;
+  position: relative;
+  z-index: 1;
 }
+
+.item_author,
+.author_list_pp,
+.author_list_info{
+  position: relative;
+  z-index: 5;
+}  
