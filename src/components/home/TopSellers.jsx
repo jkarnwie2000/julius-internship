@@ -26,11 +26,10 @@ const TopSellers = () => {
     fetchData();
   }, []);
 
-  // Skeleton item
   const SkeletonItem = () => {
     const shimmer = {
       background:
-        "linear-gradient(90deg, #eeeeee 25%, #dddddd 37%, #eeeeee 63%)",
+        "linear-gradient(90deg, #EEEEEE 25%, #DDDDDD 37%, #EEEEEE 63%)",
       backgroundSize: "400% 100%",
       animation: "shimmer 1.4s ease infinite",
     };
@@ -43,7 +42,6 @@ const TopSellers = () => {
           marginBottom: "16px",
         }}
       >
-        {/* Avatar */}
         <div
           style={{
             width: "50px",
@@ -54,7 +52,6 @@ const TopSellers = () => {
           }}
         />
 
-        {/* Text */}
         <div style={{ flex: 1 }}>
           <div
             style={{
@@ -80,7 +77,6 @@ const TopSellers = () => {
 
   return (
     <section id="section-popular" className="pb-5">
-      {/* Shimmer animation */}
       <style>
         {`
           @keyframes shimmer {
@@ -101,7 +97,7 @@ const TopSellers = () => {
 
           <div className="col-md-12">
             <ol className="author_list">
-              {/* Skeleton loading */}
+              {/* Loading skeleton */}
               {loading &&
                 Array.from({ length: 6 }).map((_, i) => (
                   <SkeletonItem key={i} />
@@ -114,9 +110,9 @@ const TopSellers = () => {
               {!loading &&
                 !error &&
                 data.map((seller) => (
-                  <li key={seller.authorName}>
+                  <li key={seller.authorId}>
                     <div className="author_list_pp">
-                      <Link to="/author">
+                      <Link to={`/author/${seller.authorId}`}>
                         <img
                           className="lazy pp-author"
                           src={seller.authorImage || AuthorImage}
@@ -127,7 +123,9 @@ const TopSellers = () => {
                     </div>
 
                     <div className="author_list_info">
-                      <Link to="/author">{seller.authorName}</Link>
+                      <Link to={`/author/${seller.authorId}`}>
+                        {seller.authorName}
+                      </Link>
                       <span>{seller.price} ETH</span>
                     </div>
                   </li>

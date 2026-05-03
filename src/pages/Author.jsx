@@ -104,10 +104,7 @@ const Author = () => {
                   <div className="d_profile de-flex">
                     <div className="de-flex-col">
                       <div className="profile_avatar">
-                        <img
-                          src={data.authorImage}
-                          alt={data.authorName}
-                        />
+                        <img src={data.authorImage} alt={data.authorName} />
                         <i className="fa fa-check"></i>
 
                         <div className="profile_name">
@@ -144,6 +141,7 @@ const Author = () => {
               {/* ===== NFT ITEMS ===== */}
               <div className="col-md-12">
                 <AuthorItems
+                  author={data}
                   items={data?.nftCollection || []}
                   loading={loading}
                 />

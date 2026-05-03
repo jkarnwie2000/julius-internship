@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import AuthorImage from "../../images/author_thumbnail.jpg";
 
-const AuthorItems = ({ items, loading }) => {
+const AuthorItems = ({ items, loading, author }) => {
   const shimmer = {
     background: "linear-gradient(90deg,#eee 25%,#ddd 37%,#eee 63%)",
     backgroundSize: "400% 100%",
@@ -34,20 +34,21 @@ const AuthorItems = ({ items, loading }) => {
           {/* ===== DATA ===== */}
           {!loading &&
             items.map((item) => (
-              <div
+              <Link
+                to={`/item-details/${item.nftId}`}
                 className="col-lg-3 col-md-6 col-sm-6 col-xs-12"
-                key={item.id}
+                key={item.nftId}
               >
                 <div className="nft__item">
                   <div className="author_list_pp">
-                    <Link to="">
-                      <img className="lazy" src={AuthorImage} alt="" />
+                    <Link to={`/author/${item.authorId}`}>
+                      <img className="lazy" src={author?.authorImage || AuthorImage} alt={author?.authorName} />
                       <i className="fa fa-check"></i>
                     </Link>
                   </div>
 
                   <div className="nft__item_wrap">
-                    <Link to="/item-details">
+                    <Link to={`/item-details/${item.nftId}`}>
                       <img
                         src={item.nftImage}
                         className="lazy nft__item_preview"
@@ -57,7 +58,7 @@ const AuthorItems = ({ items, loading }) => {
                   </div>
 
                   <div className="nft__item_info">
-                    <Link to="/item-details">
+                    <Link to={`/item-details/${item.nftId}`}>
                       <h4>{item.title}</h4>
                     </Link>
 
@@ -69,7 +70,7 @@ const AuthorItems = ({ items, loading }) => {
                     </div>
                   </div>
                 </div>
-              </div>
+              </Link>
             ))}
         </div>
       </div>
