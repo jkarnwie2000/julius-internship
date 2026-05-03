@@ -119,7 +119,7 @@ const HotCollections = () => {
                     <Link to="/explore">
                       <h4>{item.title}</h4>
                     </Link>
-                    <span>{item.code}</span>
+                    <span>ERC-{item.code}</span>
                   </div>
                 </div>
               </div>

@@ -93,8 +93,7 @@ const settings = {
       },
     ],
   };
-
-//Julius Gold is Wealthy
+  
 return (
     <section id="section-items" className="no-bottom">
       <div className="container">
@@ -163,10 +162,10 @@ return (
                   <Link to={`/item-details/${item.nftId}`}>
                     <h4>{item.title}</h4>
                   </Link>
-                  <div className="nft__item_price">3.08 ETH</div>
+                  <div className="nft__item_price">{item.price} ETH</div>
                   <div className="nft__item_like">
                     <i className="fa fa-heart"></i>
-                    <span>69</span>
+                    <span>{item.likes}</span>
                   </div>
                 </div>
               </div>
