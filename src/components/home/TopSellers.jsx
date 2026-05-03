@@ -1,26 +1,30 @@
 import React, { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import AuthorImage from "../../images/author_thumbnail.jpg";
 import axios from "axios";
 
 
 
 const TopSellers = () => {
-const { id } = useParams();
 const [topsellers, setTopsellers] = React.useState([]);
 const [loading, setLoading] = React.useState(true);
 
 useEffect(() => {
-async function fetchTopSellers() {
-const { data } = await axios.get(`https://us-central1-nft-cloud-functions.cloudfunctions.net/topSellers?=${id}`
-
-)
-console.log(data)
-setTopsellers(data);
-setLoading(false);
-}
-fetchTopSellers();
-}, [])
+  async function fetchTopSellers() {
+    try {
+      const { data } = await axios.get(
+        "https://us-central1-nft-cloud-functions.cloudfunctions.net/topSellers"
+      );
+      console.log(data);
+      setTopsellers(data);
+    } catch (error) {
+      console.error("Error fetching top sellers:", error);
+    } finally {
+      setLoading(false);
+    }
+  }
+  fetchTopSellers();
+}, []);
 
 return (
 <section id="section-popular" className="pb-5">
@@ -34,13 +38,22 @@ return (
       </div>   
       <div className="col-md-12">
         <ol className="author_list">
-          {new Array(12).fill(0).map((_, index) => (
-            <li key={index}>
+          {loading
+          ?   
+          new Array(12).fill(0).map((_, index) => (
+            <div className="newitems" key={index}>
+                    <div className="topsellers__nftImage--skeleton"></div>
+                    <div className="topsellers__authorImage--skeleton"></div>
+                    <div className="topsellers__title--skeleton"></div>                    
+                    <div className="topsellers__code--skeleton"></div>                    
+                  </div>
+          ))
+          : (topsellers.map((item, index) => (<li key={index}>
               <div className="author_list_pp">
-                <Link to="/author">
+                <Link to={`/author/${topsellers.AuthorImage}`}>
                   <img
                     className="lazy pp-author"
-                    src={AuthorImage}
+                    src={item.AuthorImage}
                     alt=""
                   />
                   <i className="fa fa-check"></i>
@@ -51,7 +64,7 @@ return (
                 <span>2.1 ETH</span>
               </div>
             </li>
-          ))}
+          )))}
         </ol>
       </div>
     </div>
