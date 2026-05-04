@@ -1,10 +1,24 @@
 import React, { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
-import AuthorImage from "../../images/author_thumbnail.jpg";
-import nftImage from "../../images/nftImage.jpg";
+import { Link } from "react-router-dom";
 import axios from "axios";
+import Skeleton from "../UI/Skeleton";
 
-const ExploreItems = () => { 
+const ExploreItems = () => {
+const [items, setItems] = useState([]);
+const [visibleItems, setVisibleItems] = useState(8);
+const [loading, setLoading] = useState(true);
+const [sort, setSort] = useState("");
+
+useEffect(() => {
+  async function fetchExploreItems() {
+    const { data } = await axios.get(
+      "https://us-central1-nft-cloud-functions.cloudfunctions.net/explore"
+    );
+    setItems(data);
+    setLoading(false);
+  }
+  fetchExploreItems();
+}, []);
 
   return (
     <>
@@ -16,7 +30,7 @@ const ExploreItems = () => {
           <option value="likes_high_to_low">Most liked</option>
         </select>
       </div>
-      {new Array(8).fill(0).map((_, index) => (
+      {sortedItems.slice(0, visibleItems).map((_, index) => (
         <div
           key={index}
           className="d-item col-lg-3 col-md-6 col-sm-6 col-xs-12"
