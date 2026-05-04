@@ -129,7 +129,7 @@ return (
                   </Link>
                 </div>                
                 <div className="de_countdown">
-                  {hours}h {minutes}m {seconds}s
+                  
                 </div>
                 <div className="nft__item_wrap">
                   <div className="nft__item_extra">
