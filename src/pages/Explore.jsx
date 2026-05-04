@@ -1,11 +1,27 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import SubHeader from "../images/subheader.jpg";
 import ExploreItems from "../components/explore/ExploreItems";
+import { useParams } from "react-router-dom";
+import axios from "axios";
 
 const Explore = () => {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+const { id } = useParams();
+const [explore, setExplore] = React.useState();
+const [loading, setLoading] = React.useState(true);
+
+useEffect(() => {
+async function fetchExplore() {
+const { data } = await axios.get(
+  "https://us-central1-nft-cloud-functions.cloudfunctions.net/explore"
+)
+setExplore();
+setLoading(false);
+}
+
+fetchExplore();
+
+window.scrollTo(0, 0);
+}, []);  
 
   return (
     <div id="wrapper">

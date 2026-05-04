@@ -126,10 +126,10 @@ return (
                   >
                     <img className="lazy" src={item.authorImage} alt="" />
                     <i className="fa fa-check"></i>
-                  </Link>
+                  </Link>                  
                 </div>                
                 <div className="de_countdown">
-                  {hours}h {minutes}m {seconds}s
+                  <div>{hours}h {minutes}m {seconds}s</div>
                 </div>
                 <div className="nft__item_wrap">
                   <div className="nft__item_extra">
