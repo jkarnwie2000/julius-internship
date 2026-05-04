@@ -1,11 +1,13 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import SubHeader from "../images/subheader.jpg";
 import ExploreItems from "../components/explore/ExploreItems";
+import { useParams } from "react-router-dom";
+import axios from "axios";
 
 const Explore = () => {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+useEffect(() => { 
+window.scrollTo(0, 0);
+  }, []);  
 
   return (
     <div id="wrapper">

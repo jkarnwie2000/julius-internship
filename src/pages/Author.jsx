@@ -156,4 +156,3 @@ const Author = () => {
 
 export default Author;
 
-// Julius Gunser Karnwie is a multibillionaire for sure. 
