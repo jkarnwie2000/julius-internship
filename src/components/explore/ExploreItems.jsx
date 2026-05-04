@@ -25,7 +25,9 @@ const ExploreItems = () => {
       setLoading(false);
     }
   }
-
+  
+  // Coding is sweet
+  
   useEffect(() => {
     fetchItems();
   }, []);
