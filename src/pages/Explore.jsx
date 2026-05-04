@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import SubHeader from "../images/subheader.jpg";
 import ExploreItems from "../components/explore/ExploreItems";
-import AuthorItems from "../components/author/AuthorItems";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 
@@ -13,7 +12,7 @@ const [loading, setLoading] = React.useState(true);
 useEffect(() => {
 async function fetchExplore() {
 const { data } = await axios.get(
-  `https://us-central1-nft-cloud-functions.cloudfunctions.net/explore?=${id}`
+  "https://us-central1-nft-cloud-functions.cloudfunctions.net/explore"
 )
 setExplore();
 setLoading(false);
