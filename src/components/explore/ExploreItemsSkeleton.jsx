@@ -1,13 +1,9 @@
 import React from "react";
-
 import Skeleton from "../UI/Skeleton";
-
 import Aos from "aos";
-
 import "aos/dist/aos.css";
 
 Aos.init();
-
 
 
 const ExploreItemsSkeleton = ({ width, maxWidth, padding }) => {

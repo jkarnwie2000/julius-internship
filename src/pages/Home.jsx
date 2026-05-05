@@ -7,11 +7,7 @@ import NewItems from "../components/home/NewItems";
 import TopSellers from "../components/home/TopSellers";
 
 const Home = () => {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
-  return (
+return (
     <div id="wrapper">
       <div className="no-bottom no-top" id="content">
         <div id="top"></div>

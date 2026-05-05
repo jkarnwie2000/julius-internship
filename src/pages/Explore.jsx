@@ -15,25 +15,18 @@ const { data } = await axios.get(
   "https://us-central1-nft-cloud-functions.cloudfunctions.net/explore"
 )
 setExplore();
-setLoading(false);
+setLoading(false)
+
 }
-
 fetchExplore();
-
-window.scrollTo(0, 0);
 }, []);  
 
   return (
            
     <div id="wrapper">
       <div className="no-bottom no-top" id="content">
-        <div id="top"></div>
-        
-    {loading ? (
-      <ExploreItemsSkeleton />
-    ) : 
-     (
-      (<section
+        <div id="top"></div>    
+      <section
           id="subheader"          
           className="text-light"
           style={{ background: `url("${SubHeader}") top` }}
@@ -49,9 +42,8 @@ window.scrollTo(0, 0);
             </div>
           </div>
         </section>
-         )
-        )
-        }
+         
+        
         <section aria-label="section">
           <div className="container">
             <div className="row">

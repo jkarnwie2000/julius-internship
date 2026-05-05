@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Skeleton from "../UI/Skeleton";
 import axios from "axios";
+import ExploreItemsSkeleton from "./ExploreItemsSkeleton";
 
 const ExploreItems = () => {
   const [items, setItems] = useState([]);
@@ -92,39 +93,7 @@ const ExploreItems = () => {
 
       {loading
         ? new Array(8).fill(0).map((_, index) => (
-            <div
-              key={index}
-              className="d-item col-lg-3 col-md-6 col-sm-6 col-xs-12"
-              style={{ display: "block", backgroundSize: "cover" }}
-            >
-              <div className="nft__item" data-aos="fade-up">
-                <div className="author_list_pp" data-aos="fade-up">
-                  <Skeleton width="50px" height="50px" borderRadius="50%" />
-                  <i className="fa fa-check"></i>
-                </div>
-
-                <div className="de_countdown">
-                  <Skeleton width="90px" height="24px" borderRadius="5px" />
-                </div>
-
-                <div className="nft__item_wrap">
-                  <Skeleton width="100%" height="250px" borderRadius="10px" />
-                </div>
-
-                <div className="nft__item_info">
-                  <Skeleton width="100px" height="20px" borderRadius="5px" />
-                  <div className="nft__item_price">
-                    <Skeleton width="60px" height="20px" borderRadius="5px" />
-                  </div>
-                  <div className="nft__item_like">
-                    <i className="fa fa-heart"></i>
-                    <span>
-                      <Skeleton width="30px" height="20px" borderRadius="5px" />
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <ExploreItemsSkeleton key={index} />
           ))
         : items.slice(0, visibleItems).map((item) => (
             <div

@@ -5,9 +5,8 @@ import { Link } from "react-router-dom";
 
 const BrowseByCategory = () => {
 useEffect(() => {
-  window.scrollTo(0, 0);
-
-  AOS.init({
+ 
+AOS.init({
     duration: 3000,
     once: true,
   });

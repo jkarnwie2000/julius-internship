@@ -38,10 +38,9 @@ const ItemDetails = () => {
       } finally {
         setLoading(false);
       }
-    }
-
-    fetchItemDetails();
     window.scrollTo(0, 0);
+    }
+    fetchItemDetails();   
   }, [nftId]);
 
   return (
