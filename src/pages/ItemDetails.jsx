@@ -1,8 +1,6 @@
 import React, { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
-
-
 import ItemDetailsSkeleton from "../components/UI/ItemDetailsSkeleton";
 import ethereumIcon from "../images/ethereum.svg";
 
