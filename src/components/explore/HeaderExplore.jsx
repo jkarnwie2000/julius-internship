@@ -1,6 +1,7 @@
 import React from "react";
 
 const HeaderExplore = () => {
+
   return (
     <div className="col-lg-12">
       <div className="items_filter">
@@ -27,7 +28,7 @@ const HeaderExplore = () => {
         </form>
 
         <div id="item_category" className="dropdown">
-          <a href="#" className="btn-selector">
+          <a href="#" className="btn-selector" >
             All categories
           </a>
           <ul>

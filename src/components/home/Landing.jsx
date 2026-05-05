@@ -1,19 +1,22 @@
-import React from "react";
+import { useEffect } from "react";
 import NFT from "../../images/nft.png";
 import backgroundImage from "../../images/bg-shape-1.jpg";
-import AOS from 'aos';
+import AOS from "aos";
+import "aos/dist/aos.css";
 import { Link } from "react-router-dom";
 
 const Landing = () => {
-
+useEffect(() => {
 AOS.init({
       duration: 3000, // Global animation duration in ms
       once: false,    // Whether animation should happen only once - while scrolling down
     });
+}, [])
+
 
   return (
     <section
-      id="section-hero"
+      id="section-hero"      
       aria-label="section"
       className="no-top no-bottom vh-100"
       data-bgimage="url(images/bg-shape-1.jpg) bottom"
@@ -21,7 +24,7 @@ AOS.init({
     >
       <div className="v-center">
         <div className="container">
-          <div className="row align-items-center" data-aos="fade-out">
+          <div className="row align-items-center">
             <div className="col-md-6" data-aos="fade-up">
               <div className="spacer-single"></div>
               <h6>
@@ -42,7 +45,7 @@ AOS.init({
               </Link>
               <div className="mb-sm-30"></div>
             </div>
-            <div className="col-md-6 xs-hide">
+            <div className="col-md-6 xs-hide" data-aos="fade-out">
               <img src={NFT} className="lazy img-fluid" alt="" />
             </div>
           </div>

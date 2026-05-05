@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import { Link } from "react-router-dom";
-import AOS from 'aos';
 import AuthorImage from "../../images/author_thumbnail.jpg";
 
 const TopSellers = () => {
@@ -9,10 +10,10 @@ const TopSellers = () => {
   const [error, setError] = React.useState(null);
 
   React.useEffect(() => {
-  AOS.init({
-          duration: 3000, // Global animation duration in ms
-          once: false,    // Whether animation should happen only once - while scrolling down
-  });
+    AOS.init({
+    duration: 800,
+    once: true,
+    }); 
     const fetchData = async () => {
       try {
         const response = await fetch(
@@ -116,7 +117,7 @@ const TopSellers = () => {
                 !error &&
                 data.map((seller) => (
                   <li key={seller.authorId}>
-                    <div className="author_list_pp" data-aos="fade-up">
+                    <div className="author_list_pp">
                       <Link to={`/author/${seller.authorId}`}>
                         <img
                           className="lazy pp-author"
@@ -127,7 +128,7 @@ const TopSellers = () => {
                       </Link>
                     </div>
 
-                    <div className="author_list_info" data-aos="fade-up">
+                    <div className="author_list_info">
                       <Link to={`/author/${seller.authorId}`}>
                         {seller.authorName}
                       </Link>

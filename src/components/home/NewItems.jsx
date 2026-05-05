@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import AuthorImage from "../../images/author_thumbnail.jpg";
-import AOS from "aos";
 import nftImage from "../../images/nftImage.jpg";
 import Slider from "react-slick";
 import "./NewItems.css";
@@ -28,11 +27,6 @@ fetchNewItems();
 const [timeLeft, setTimeLeft] = useState(2 * 60 * 60 + 43 * 60 + 14);
 
 useEffect(() => {
-  AOS.init({
-          duration: 3000, // Global animation duration in ms
-          once: false,    // Whether animation should happen only once - while scrolling down
-  });
-
   const interval = setInterval(() => {
     setTimeLeft((prevTime) => {
       if (prevTime <= 0) {
@@ -42,14 +36,16 @@ useEffect(() => {
 
       return prevTime - 1;
     });
-  }, 1000);  
+  }, 1000);
 
-  return () => clearInterval(interval);  
+  return () => clearInterval(interval);
+
 }, []);
 
 const hours = Math.floor(timeLeft / 3600);
 const minutes = Math.floor((timeLeft % 3600) / 60);
 const seconds = timeLeft % 60;
+
 
 const settings = {
     dots: false,
@@ -100,11 +96,11 @@ const settings = {
   };
   
 return (
-    <section id="section-items" className="no-bottom" data-aos="fade-up">
-      <div className="container" data-aos="fade-up">
-        <div className="row" data-aos="fade-up">
-          <div className="col-lg-12" data-aos="fade-up">
-            <div className="text-center" data-aos="fade-up">
+    <section id="section-items" className="no-bottom">
+      <div className="container">
+        <div className="row">
+          <div className="col-lg-12">
+            <div className="text-center">
               <h2>New Items</h2>
               <div className="small-border bg-color-2"></div>
             </div>
@@ -122,7 +118,7 @@ return (
              : (newitems.map((item, index) => ( 
             <div key={index}>
               <div className="nft__item">
-                <div className="author_list_pp" data-aos="fade-up">
+                <div className="author_list_pp">
                   <Link
                     to={`/author/${item.authorId}`}
                     data-bs-toggle="tooltip"
@@ -133,12 +129,12 @@ return (
                     <i className="fa fa-check"></i>
                   </Link>                  
                 </div>                
-                <div className="de_countdown" data-aos="fade-up">
+                <div className="de_countdown">
                   <div>{hours}h {minutes}m {seconds}s</div>
                 </div>
                 <div className="nft__item_wrap">
                   <div className="nft__item_extra">
-                    <div className="nft__item_buttons" data-aos="fade-up">
+                    <div className="nft__item_buttons">
                       <button>Buy Now</button>
                       <div className="nft__item_share">
                         <h4>Share</h4>
@@ -163,7 +159,7 @@ return (
                     />
                   </Link>
                 </div>
-                <div className="nft__item_info" data-aos="fade-up">
+                <div className="nft__item_info">
                   <Link to={`/item-details/${item.nftId}`}>
                     <h4>{item.title}</h4>
                   </Link>

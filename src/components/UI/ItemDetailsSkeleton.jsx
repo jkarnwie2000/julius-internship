@@ -4,8 +4,8 @@ import AOS from 'aos';
 
 const ItemDetailsSkeleton = () => {
 AOS.init({
-          duration: 3000, // Global animation duration in ms
-          once: false,    // Whether animation should happen only once - while scrolling down
+    duration: 2000, // Global animation duration in ms
+    once: false,    // Whether animation should happen only once - while scrolling down
   });
     return (
         <section aria-label="section" className="mt90 sm-mt-0">
