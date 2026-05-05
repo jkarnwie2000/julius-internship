@@ -16,9 +16,11 @@ const { data } = await axios.get(
 )
 setExplore();
 setLoading(false)
-
+window.scrollTo(0, 0);
 }
+
 fetchExplore();
+
 }, []);  
 
   return (
