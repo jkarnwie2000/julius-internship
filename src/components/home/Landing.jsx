@@ -1,9 +1,16 @@
 import React from "react";
 import NFT from "../../images/nft.png";
 import backgroundImage from "../../images/bg-shape-1.jpg";
+import AOS from 'aos';
 import { Link } from "react-router-dom";
 
 const Landing = () => {
+
+AOS.init({
+      duration: 3000, // Global animation duration in ms
+      once: false,    // Whether animation should happen only once - while scrolling down
+    });
+
   return (
     <section
       id="section-hero"
@@ -14,8 +21,8 @@ const Landing = () => {
     >
       <div className="v-center">
         <div className="container">
-          <div className="row align-items-center">
-            <div className="col-md-6">
+          <div className="row align-items-center" data-aos="fade-out">
+            <div className="col-md-6" data-aos="fade-up">
               <div className="spacer-single"></div>
               <h6>
                 <span className="text-uppercase id-color-2">

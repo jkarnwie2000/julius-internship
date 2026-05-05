@@ -1,7 +1,12 @@
 import React from "react";
 import Skeleton from "./Skeleton";
+import AOS from 'aos';
 
 const ItemDetailsSkeleton = () => {
+AOS.init({
+          duration: 3000, // Global animation duration in ms
+          once: false,    // Whether animation should happen only once - while scrolling down
+  });
     return (
         <section aria-label="section" className="mt90 sm-mt-0">
             <div className="container">
@@ -22,14 +27,14 @@ const ItemDetailsSkeleton = () => {
                                 <div className="mr40">
                                     <h6>Owner</h6>
                                     <div className="item_author">
-                                        <div className="author_list_pp">
+                                        <div className="author_list_pp" data-aos="fade-up">
                                             <Skeleton
                                                 width="50px"
                                                 height="50px"
                                                 borderRadius="50%"
                                             />
                                         </div>
-                                        <div className="author_list_info">
+                                        <div className="author_list_info" data-aos="fade-up">
                                             <Skeleton width="125px" height="20px" borderRadius="6px" />
                                         </div>
                                     </div>
@@ -40,14 +45,14 @@ const ItemDetailsSkeleton = () => {
                                 <div className="de_tab_content">
                                     <h6>Creator</h6>
                                     <div className="item_author">
-                                        <div className="author_list_pp">
+                                        <div className="author_list_pp" data-aos="fade-up">
                                             <Skeleton
                                                 width="50px"
                                                 height="50px"
                                                 borderRadius="50%"
                                             />
                                         </div>
-                                        <div className="author_list_info">
+                                        <div className="author_list_info" data-aos="fade-up">
                                             <Skeleton width="125px" height="20px" borderRadius="6px" />
                                         </div>
                                     </div>

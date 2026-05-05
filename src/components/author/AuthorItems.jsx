@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import AOS from 'aos';
 import AuthorImage from "../../images/author_thumbnail.jpg";
 
 const AuthorItems = ({ items, loading, author }) => {
@@ -8,6 +9,11 @@ const AuthorItems = ({ items, loading, author }) => {
     backgroundSize: "400% 100%",
     animation: "shimmer 1.4s infinite",
   };
+
+  AOS.init({
+          duration: 3000, // Global animation duration in ms
+          once: false,    // Whether animation should happen only once - while scrolling down
+  });
 
   const SkeletonCard = () => (
     <div className="col-lg-3 col-md-6 col-sm-6 col-xs-12">
@@ -40,7 +46,7 @@ const AuthorItems = ({ items, loading, author }) => {
                 key={item.nftId}
               >
                 <div className="nft__item">
-                  <div className="author_list_pp">
+                  <div className="author_list_pp" data-aos="fade-up">
                     <Link to={`/author/${item.authorId}`}>
                       <img className="lazy" src={author?.authorImage || AuthorImage} alt={author?.authorName} />
                       <i className="fa fa-check"></i>

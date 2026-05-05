@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Skeleton from "../UI/Skeleton";
+import AOS from 'aos';
 import axios from "axios";
 
 const ExploreItems = () => {
@@ -28,11 +29,19 @@ const ExploreItems = () => {
   
    
   useEffect(() => {
+
+  AOS.init({
+          duration: 3000, // Global animation duration in ms
+          once: false,    // Whether animation should happen only once - while scrolling down
+  });
+
     fetchItems();
   }, []);
 
   // 👇 countdown updater (runs every second)
   useEffect(() => {
+    
+
     const interval = setInterval(() => {
       setTime(Date.now());
     }, 1000);
@@ -95,8 +104,8 @@ const ExploreItems = () => {
               className="d-item col-lg-3 col-md-6 col-sm-6 col-xs-12"
               style={{ display: "block", backgroundSize: "cover" }}
             >
-              <div className="nft__item">
-                <div className="author_list_pp">
+              <div className="nft__item" data-aos="fade-up">
+                <div className="author_list_pp" data-aos="fade-up">
                   <Skeleton width="50px" height="50px" borderRadius="50%" />
                   <i className="fa fa-check"></i>
                 </div>
@@ -131,7 +140,7 @@ const ExploreItems = () => {
               style={{ display: "block", backgroundSize: "cover" }}
             >
               <div className="nft__item">
-                <div className="author_list_pp">
+                <div className="author_list_pp" data-aos="fade-up">
                   <Link
                     to={`/author/${item.authorId}`}
                     data-bs-toggle="tooltip"

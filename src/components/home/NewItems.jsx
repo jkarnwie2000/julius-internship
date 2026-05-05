@@ -28,6 +28,11 @@ fetchNewItems();
 const [timeLeft, setTimeLeft] = useState(2 * 60 * 60 + 43 * 60 + 14);
 
 useEffect(() => {
+  AOS.init({
+          duration: 3000, // Global animation duration in ms
+          once: false,    // Whether animation should happen only once - while scrolling down
+  });
+
   const interval = setInterval(() => {
     setTimeLeft((prevTime) => {
       if (prevTime <= 0) {
@@ -37,14 +42,9 @@ useEffect(() => {
 
       return prevTime - 1;
     });
-  }, 1000);
+  }, 1000);  
 
-  return () => clearInterval(interval);
-
-  AOS.init({
-          duration: 3000, // Global animation duration in ms
-          once: false,    // Whether animation should happen only once - while scrolling down
-  });
+  return () => clearInterval(interval);  
 }, []);
 
 const hours = Math.floor(timeLeft / 3600);

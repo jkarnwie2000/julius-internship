@@ -1,10 +1,17 @@
 import React from "react";
+import AOS from 'aos';
 
 const LandingIntro = () => {
+
+AOS.init({
+          duration: 3000, // Global animation duration in ms
+          once: false,    // Whether animation should happen only once - while scrolling down
+  });
+
   return (
     <section id="section-intro" className="no-top no-bottom">
       <div className="container">
-        <div className="row">
+        <div className="row" data-aos="fade-out">
           <div className="col-lg-4 col-md-6 mb-sm-30">
             <div className="feature-box f-boxed style-3">
               <i className="bg-color-2 i-boxed icon_wallet"></i>
