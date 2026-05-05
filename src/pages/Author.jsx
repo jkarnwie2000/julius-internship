@@ -10,6 +10,7 @@ const Author = () => {
   const [data, setData] = React.useState(null);
   const [loading, setLoading] = React.useState(true);
   const [error, setError] = React.useState(null);
+  const [isFollowing, setIsFollowing] = React.useState(false)
 
   React.useEffect(() => {
     const fetchData = async () => {
@@ -118,7 +119,7 @@ const Author = () => {
                               {data.address}
                             </span>
 
-                            <button>Copy</button>
+                            <button id="btn_copy" >Copy</button>
                           </h4>
                         </div>
                       </div>
@@ -129,9 +130,11 @@ const Author = () => {
                         <div className="profile_follower">
                           {data.followers} followers
                         </div>
-                        <Link to="#" className="btn-main">
-                          Follow
-                        </Link>
+                        <button className="btn-main" onClick={() => setIsFollowing(prev => !prev)}>
+                          {
+                          isFollowing ? "Unfollow" : "Follow"
+                          }
+                        </button>
                       </div>
                     </div>
                   </div>

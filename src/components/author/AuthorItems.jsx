@@ -40,9 +40,11 @@ const AuthorItems = ({ items, loading, author }) => {
                 key={item.nftId}
               >
                 <div className="nft__item">
-                  <div className="author_list_pp">                    
+                  <div className="author_list_pp">
+                    <a href="">
                       <img className="lazy" src={author?.authorImage || AuthorImage} alt={author?.authorName} />
-                      <i className="fa fa-check"></i>                    
+                      <i className="fa fa-check"></i>
+                    </a>
                   </div>
 
                   <div className="nft__item_wrap">
