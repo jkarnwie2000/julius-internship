@@ -26,8 +26,7 @@ const ExploreItems = () => {
     }
   }
   
-  // Coding is sweet
-  
+   
   useEffect(() => {
     fetchItems();
   }, []);

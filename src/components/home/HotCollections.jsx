@@ -3,6 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import AuthorImage from "../../images/author_thumbnail.jpg";
 import nftImage from "../../images/nftImage.jpg";
 import axios from "axios";
+import AOS from 'aos';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -21,6 +22,10 @@ const HotCollections = () => {
       setHotcollections(data);
       setLoading(false);
     }
+  AOS.init({
+      duration: 3000, // Global animation duration in ms
+      once: false,    // Whether animation should happen only once - while scrolling down
+    });
     fetchHotCollections();
   }, [id]);
 
@@ -95,7 +100,7 @@ const HotCollections = () => {
               : (hotcollections.map((item, index) => (
               <div key={index}>
                 <div className="nft_coll">
-                  <div className="nft_wrap">
+                  <div className="nft_wrap" data-aos="fade-up">
                     <Link to={`/item-details/${item.nftId}`}> 
                       <img
                         src={item.nftImage}
@@ -103,9 +108,8 @@ const HotCollections = () => {
                         alt=""
                       />
                     </Link>                    
-                  </div>
-                            
-                  <div className="nft_coll_pp">
+                  </div>                            
+                  <div className="nft_coll_pp" data-aos="fade-up">
                     <Link to={`/author/${item.authorId}`}>                    
                       <img
                         className="lazy pp-coll"
@@ -115,7 +119,7 @@ const HotCollections = () => {
                     </Link>
                     <i className="fa fa-check"></i>
                   </div>
-                  <div className="nft_coll_info">
+                  <div className="nft_coll_info" data-aos="fade-up">
                     <Link to="/explore">
                       <h4>{item.title}</h4>
                     </Link>
