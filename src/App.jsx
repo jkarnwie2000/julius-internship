@@ -6,6 +6,8 @@ import ItemDetails from "./pages/ItemDetails";
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
 
+// Excellent job.
+
 function App() {
   return (
     <Router>
