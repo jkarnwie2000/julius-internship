@@ -102,7 +102,7 @@ const TopSellers = () => {
           </div>
 
           <div className="col-md-12">
-            <ol className="author_list" data-aos="fade-up">
+            <ol className="author_list" data-aos="fade-out">
               {/* Loading skeleton */}
               {loading &&
                 Array.from({ length: 6 }).map((_, i) => (

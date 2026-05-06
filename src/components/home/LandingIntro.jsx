@@ -6,7 +6,7 @@ import "aos/dist/aos.css";
 const LandingIntro = () => {
 useEffect(() => {
 AOS.init({
-          duration: 500, // Global animation duration in ms
+          duration: 200, // Global animation duration in ms
           once: false,    // Whether animation should happen only once - while scrolling down
   });
 }, [])
