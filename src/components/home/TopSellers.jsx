@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import { Link } from "react-router-dom";
 import AuthorImage from "../../images/author_thumbnail.jpg";
 
@@ -8,6 +10,10 @@ const TopSellers = () => {
   const [error, setError] = React.useState(null);
 
   React.useEffect(() => {
+    AOS.init({
+    duration: 800,
+    once: true,
+    }); 
     const fetchData = async () => {
       try {
         const response = await fetch(
@@ -96,7 +102,7 @@ const TopSellers = () => {
           </div>
 
           <div className="col-md-12">
-            <ol className="author_list">
+            <ol className="author_list" data-aos="fade-out">
               {/* Loading skeleton */}
               {loading &&
                 Array.from({ length: 6 }).map((_, i) => (

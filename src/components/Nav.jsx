@@ -5,12 +5,12 @@ import { FaTimes } from "react-icons/fa";
 
 const Nav = () => {
   const openNav = () => {
-    document.body.classList += "menu__open";
-  };
+  document.body.classList.add("menu__open");
+};
 
   const closeNav = () => {
-    document.body.classList.remove("menu__open");
-  };
+  document.body.classList.remove("menu__open");
+};
 
   return (
     <header className="transparent header-light scroll-light smaller">

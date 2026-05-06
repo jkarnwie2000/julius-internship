@@ -3,7 +3,7 @@ import SubHeader from "../images/subheader.jpg";
 import ExploreItems from "../components/explore/ExploreItems";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-
+import ExploreItemsSkeleton from "../components/explore/ExploreItemsSkeleton";
 const Explore = () => {
 const { id } = useParams();
 const [explore, setExplore] = React.useState();
@@ -15,21 +15,21 @@ const { data } = await axios.get(
   "https://us-central1-nft-cloud-functions.cloudfunctions.net/explore"
 )
 setExplore();
-setLoading(false);
+setLoading(false)
+window.scrollTo(0, 0);
 }
 
 fetchExplore();
 
-window.scrollTo(0, 0);
 }, []);  
 
   return (
+           
     <div id="wrapper">
       <div className="no-bottom no-top" id="content">
-        <div id="top"></div>
-
-        <section
-          id="subheader"
+        <div id="top"></div>    
+      <section
+          id="subheader"          
           className="text-light"
           style={{ background: `url("${SubHeader}") top` }}
         >
@@ -44,16 +44,17 @@ window.scrollTo(0, 0);
             </div>
           </div>
         </section>
-
+         
+        
         <section aria-label="section">
           <div className="container">
             <div className="row">
               <ExploreItems />
             </div>
           </div>
-        </section>
+        </section>       
       </div>
-    </div>
+    </div>    
   );
 };
 
