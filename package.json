@@ -19,7 +19,7 @@
   "bugs": {
     "url": "https://github.com/jkarnwie2000/julius-internship/issues"
   },
-  "homepage": "https://github.com/jkarnwie2000/julius-internship#readme",
+ 
   "dependencies": {
     "aos": "^2.3.4",
     "axios": "^1.16.0",
