@@ -1,0 +1,890 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wdth,wght@0,75..100,100..900;1,75..100,100..900&display=swap');
+/**THE ENTIRE PAGE**/
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Roboto", sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/**👇BEGINNING OF THE 1ST SECTION OF PAGE ON TOP WHERE NAV BAR & 'HEY I'M J GOLD' ARE: FORMATTING APPLIES TO ENTIRE PAGE👇**/
+/**👇BEGINNING OF THE 1ST SECTION OF PAGE ON TOP WHERE NAV BAR & 'HEY I'M J GOLD' ARE: FORMATTING APPLIES TO ENTIRE PAGE👇**/
+/**👇BEGINNING OF THE 1ST SECTION OF PAGE ON TOP WHERE NAV BAR & 'HEY I'M J GOLD' ARE: FORMATTING APPLIES TO ENTIRE PAGE👇**/
+/**👇BEGINNING OF THE 1ST SECTION OF PAGE ON TOP WHERE NAV BAR & 'HEY I'M J GOLD' ARE: FORMATTING APPLIES TO ENTIRE PAGE👇**/
+/**👇BEGINNING OF THE 1ST SECTION OF PAGE ON TOP WHERE NAV BAR & 'HEY I'M J GOLD' ARE: FORMATTING APPLIES TO ENTIRE PAGE👇**/
+
+/**SINCE IT IS WITHIN THE 'BODY' IN HTML, 'AND THE BODY REPRESENTS THE ENTIRE PAGE**/
+section {
+    background-color: rgb(245, 245, 245);
+}
+
+/**LANDING PAGE: THIS REFERS TO THE CSS FORMATTING FOR THE WHOLE PAGE**/
+#landing-page {
+    min-height: 100vh;
+}
+
+
+/**for envelop icon at top-left of page**/
+.mail__btn {
+    width: 70px;
+    height: 70px;
+    font-size: 32px;
+    border-radius: 50%;
+    border: none;
+    background-color: #242424;
+    color: white;
+    z-index: 100;
+    position:fixed;
+    bottom: 32px;
+    right: 40px;    
+}
+
+.scroll {
+    position:absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);    
+}
+
+/**for that 'tiny' icon within the scroll bubble in the middle**/
+.scroll__icon {
+    width: 20px;
+    height: 30px;
+    border: 2px solid #242424;
+    border-radius: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/**👇to animate the 'tiny' icon inside the scroll bubble👇**/
+@keyframes scroll {
+0% {
+    transform: translateY(3px);
+}
+100% {
+    transform: translateY(-3px);
+}
+}
+
+.scroll__icon:after {
+    background-color: #242424;
+    content: "";
+    height: 4px;
+    width: 6px;
+    border-radius: 2px;
+/**☝️to animate the 'tiny' icon inside the scroll bubble☝️**/
+    animation: scroll 1000ms infinite alternate-reverse;
+}
+
+button {
+    cursor: pointer;
+}
+
+/**THIS SECTION CODES THE 'HEY! I'M JULIUS GOLD' THAT YOU SEE ON THE PAGE**/
+.header {
+    position:absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    max-width: 1000px;
+    padding: 0 30px;
+}
+
+.social__list {
+    margin-top: 16px;
+    /**use this code 👇, including the 3 codes below**/
+    /**to center an element like the 'linkedin icon'**/
+    /**NOT a text like 'Hey'**/
+    display: flex;    
+}
+
+.social__link {
+    background-color: #f06449;
+    color: white;
+    padding: 6px;
+    width: 32px;
+    height: 32px;
+    font-size: 14px;
+    margin-right: 12px;
+    border-radius: 50%;
+    /**use the these 3 codes, 👇 including the one above to**/ 
+    /**center an element like the 'linkedin icon'**/
+    /***NOT text like 'Hey'**/
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+}
+
+.click {
+    transition: all 300ms ease;
+    cursor: pointer;
+}
+
+.click:hover {
+    transform: scale(1.1);
+}
+.click:active {
+    transform: scale(0.8);
+}
+
+/**to remove TEXT DECORATION from all anchor tags (<a> tags, including linkedin, github, pdf icons)**/
+a {
+    text-decoration: none;
+}
+
+.header__para {
+    font-size: 24px;
+    line-height: 2;
+    max-width: 420px;
+}
+
+p {
+    line-height: 1.5;
+    font-size: 16px;
+}
+
+.title {
+    font-size: 55px;
+    margin-top: 18px;
+    margin-bottom: 12px;
+    text-align: left;
+    line-height: 1;
+}
+
+.orange {
+    color: #f06449 !important;
+}
+
+/**NAV BAR: BLACK AND WHITE LOGO AT THE TOP LEFT OF PAGE**/
+#personal-logo {    
+    height: 50px;
+    width: 50px;
+    filter: invert(100%);
+    box-sizing: border-box;
+}
+
+/**BEGINNING OF THE NAV BAR: REMOVING BULLET POINTS FROM ABOUT, PROJECT, CONTACT LINKS AT TOP**/
+li {
+    list-style-type: none;
+}
+
+/**NAV BAR: PROPER ABOUT, PROJECT, CONTACT LINKS AT TOP**/
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    height: 100px;
+    padding: 0 20px;
+}
+
+/**to push (about projects contact) away from logo at top left to the far right of the top of page**/
+.nav__link--list {
+    display: flex;
+}
+
+/**to spread (about, projects, contact) out, creating a margin (a space) between them**/
+.nav__link {
+    margin: 0 12px;    
+}
+
+/**to remove the underline from and style (the about, project, contact)**/
+.nav__link--anchor {    
+    font-size: 16px;
+    color: #242424;
+    font-weight: 700;
+}
+
+/**to adjust the font-size of black/white theme icon on upper right corner of webpage**/
+.fa-solid {
+    font-size: 20px;
+}
+/**☝️END OF THE 1ST SECTION OF PAGE ON TOP WHERE NAV BAR & 'HEY I'M J GOLD' ARE: FORMATTING APPLIES TO ENTIRE PAGE☝️**/
+/**☝️END OF THE 1ST SECTION OF PAGE ON TOP WHERE NAV BAR & 'HEY I'M J GOLD' ARE: FORMATTING APPLIES TO ENTIRE PAGE☝️**/
+/**☝️END OF THE 1ST SECTION OF PAGE ON TOP WHERE NAV BAR & 'HEY I'M J GOLD' ARE: FORMATTING APPLIES TO ENTIRE PAGE☝️**/
+/**☝️END OF THE 1ST SECTION OF PAGE ON TOP WHERE NAV BAR & 'HEY I'M J GOLD' ARE: FORMATTING APPLIES TO ENTIRE PAGE☝️**/
+/**☝️END OF THE 1ST SECTION OF PAGE ON TOP WHERE NAV BAR & 'HEY I'M J GOLD' ARE: FORMATTING APPLIES TO ENTIRE PAGE☝️**/
+
+
+
+/**👇BEGINNING OF 2ND SECTION OF PAGE: ANIMATING 'PROJECTS RECTANGLES' SECTION👇**/
+/**👇BEGINNING OF 2ND SECTION OF PAGE: ANIMATING 'PROJECTS RECTANGLES' SECTION👇**/
+/**👇BEGINNING OF 2ND SECTION OF PAGE: ANIMATING 'PROJECTS RECTANGLES' SECTION👇**/
+/**👇BEGINNING OF 2ND SECTION OF PAGE: ANIMATING 'PROJECTS RECTANGLES' SECTION👇*/
+/**👇BEGINNING OF 2ND SECTION OF PAGE: ANIMATING 'PROJECTS RECTANGLES' SECTION👇**/
+.container {
+    padding: 50px 0;
+    width: 100%;
+}
+
+.section__title {
+    text-align: center;
+    font-size: 48px;
+    margin-bottom: 60px;
+}
+
+.row {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 12px;
+}
+
+
+/**👇BEGINNING OF FORMATTING for the animated words rectangle in👇**/ 
+/**👇the middle of the 'project rectangle'👇**/
+/***👇VERY IMPORTANT SECTION***VERY IMPORTANT SECTION***VERY IMPORTANT SECTION👇***/
+
+.project__img {
+    width: 100%;
+    transition: all 600ms ease;
+}
+
+.project:hover .project--img {
+    transform: scale(1.07);
+    filter: blur(5px);
+}
+
+.project__wrapper {
+    position: relative;
+    border-radius: 20px;
+    box-shadow: 0 20px 80px 0 rgb(0, 0, 0.45);
+    overflow: hidden;
+}
+
+.project__description {
+    position: absolute;
+    top: 50%;
+    left: 90px;
+    transform: translateY(100%);
+    opacity: 0;
+    transition: opacity 300ms, transform 450ms ease;
+    color: white;
+    max-width: 550px;
+}
+
+.project__wrapper--bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #1c1d25;
+    opacity: 0;
+    transition: all 300ms ease;
+}
+
+.project__wrapper:hover .project__description {
+    opacity: 1;
+    transform: translateY(-50%);
+}
+
+.project__wrapper:hover .project--img {
+    transform: scale(1.07);
+    filter: blur(5px);
+}
+
+.project__wrapper:hover .project__wrapper--bg {
+    opacity: 0.7;
+}
+
+.project__description--title {
+    font-size: 40px;
+}
+
+.project__description--sub-title {
+    margin: 8px;
+}
+
+.project__description--link {
+    color: white;
+    font-size: 20px;
+    margin-right: 16px;
+}
+
+.project__description--para {
+    margin: 16px 0;
+}
+/**☝️END OF FORMATTING for the animating words rectangle in☝️**/ 
+/**☝️the middle of the 'project rectangle'☝️**/
+/***☝️VERY IMPORTANT SECTION***VERY IMPORTANT SECTION***VERY IMPORTANT SECTION☝️***/
+
+/**☝️END OF 2ND SECTION OF PAGE: ANIMATING 'PROJECTS RECTANGLES' SECTION☝️**/
+/**☝️END OF 2ND SECTION OF PAGE: ANIMATING 'PROJECTS RECTANGLES' SECTION☝️**/
+/**☝️END OF 2ND SECTION OF PAGE: ANIMATING 'PROJECTS RECTANGLES' SECTION☝️**/
+/**☝️END OF 2ND SECTION OF PAGE: ANIMATING 'PROJECTS RECTANGLES' SECTION☝️*/
+/**☝️END OF 2ND SECTION OF PAGE: ANIMATING 'PROJECTS RECTANGLES' SECTION☝️**/
+
+
+
+
+/**👇BEGINNING OF 3RD & LAST SECTION OF PAGE: THE FOOTER SECTION BELOW👇**/
+/**👇BEGINNING OF 3RD & LAST SECTION OF PAGE: THE FOOTER SECTION BELOW👇**/
+/**👇BEGINNING OF 3RD & LAST SECTION OF PAGE: THE FOOTER SECTION BELOW👇**/
+/**👇BEGINNING OF 3RD & LAST SECTION OF PAGE: THE FOOTER SECTION BELOW👇**/
+/**👇BEGINNING OF 3RD & LAST SECTION OF PAGE: THE FOOTER SECTION BELOW👇**/
+
+footer {
+    position: relative;
+    background-color: #242424;
+    display: flex;
+    padding: 6% 0;
+}
+
+.footer__row {
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+}
+
+.footer__logo--img {
+    filter: invert(100%);
+    background: transparent;
+    width: 70px;
+    height: 70px;
+}
+
+.footer__social--link,
+.footer__copyright {
+    color: white;
+}
+
+.footer__social--list {
+    width: 100%;
+    max-width: 500px;
+    margin: 28px 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+/**☝️END OF 3RD & LAST SECTION OF PAGE: THE FOOTER SECTION BELOW☝️**/
+/**☝️END OF 3RD & LAST SECTION OF PAGE: THE FOOTER SECTION BELOW☝️**/
+/**☝️END OF 3RD & LAST SECTION OF PAGE: THE FOOTER SECTION BELOW☝️**/
+/**☝️END OF 3RD & LAST SECTION OF PAGE: THE FOOTER SECTION BELOW☝️**/
+/**☝️END OF 3RD & LAST SECTION OF PAGE: THE FOOTER SECTION BELOW☝️**/
+
+
+
+/***👇VERY IMPORTANT THE ANIMATION SECTION***VERY IMPORTANT THE ANIMATION SECTION👇***/
+/***👇VERY IMPORTANT THE ANIMATION SECTION***VERY IMPORTANT THE ANIMATION SECTION👇***/
+/***👇VERY IMPORTANT THE ANIMATION SECTION***VERY IMPORTANT THE ANIMATION SECTION👇***/
+/***👇VERY IMPORTANT THE ANIMATION SECTION***VERY IMPORTANT THE ANIMATION SECTION👇***/
+/***👇VERY IMPORTANT THE ANIMATION SECTION***VERY IMPORTANT THE ANIMATION SECTION👇***/
+
+.link__hover-effect {
+    position: relative;
+}
+
+.link__hover-effect:after {
+    content: "";
+    position: absolute;
+    bottom: -3px;
+    height: 3px;
+    width: 0;
+    left: 0;
+    background-color: black;
+    transition: all 300ms ease;
+}
+
+.link__hover-effect:hover:after {
+    left: 0;
+    width: 100%;
+}
+
+.link__hover-effect--white:after {
+    background-color: #fff;
+}
+
+.link__hover-effect--black:after {
+    background-color: #242424;
+}
+
+
+
+/**see toggle section below**/
+nav, 
+.scroll,
+.header {
+    opacity: 1;
+    visibility: visible;
+    transition: all 600ms 800ms;
+}
+/**👇see toggle section below👇**/
+.modal--open nav,
+.modal--open .scroll,
+.modal--open .header {
+    opacity: 0;
+    visibility: hidden;
+    transition: all 400ms;
+/**☝️see toggle section below☝️**/
+}
+
+/***☝️VERY IMPORTANT THE ANIMATION SECTION***VERY IMPORTANT THE ANIMATION SECTION☝️***/
+/***☝️VERY IMPORTANT THE ANIMATION SECTION***VERY IMPORTANT THE ANIMATION SECTION☝️***/
+/***☝️VERY IMPORTANT THE ANIMATION SECTION***VERY IMPORTANT THE ANIMATION SECTION☝️***/
+/***☝️VERY IMPORTANT THE ANIMATION SECTION***VERY IMPORTANT THE ANIMATION SECTION☝️***/
+/***☝️VERY IMPORTANT THE ANIMATION SECTION***VERY IMPORTANT THE ANIMATION SECTION☝️***/
+
+
+
+
+/***👇BEGINNING VERY IMPORTANT LEFT SIDE (WHITE SIDE) MODAL CREATION PART 1***VERY IMPORTANT MODAL CREATION PART 1 BEGINNING👇***/
+/***👇BEGINNING VERY IMPORTANT LEFT SIDE (WHITE SIDE) MODAL CREATION PART 1***VERY IMPORTANT MODAL CREATION PART 1 BEGINNING👇***/
+/***👇BEGINNING VERY IMPORTANT LEFT SIDE (WHITE SIDE) MODAL CREATION PART 1***VERY IMPORTANT MODAL CREATION PART 1 BEGINNING👇***/
+/***👇BEGINNING VERY IMPORTANT LEFT SIDE (WHITE SIDE) MODAL CREATION PART 1***VERY IMPORTANT MODAL CREATION PART 1 BEGINNING👇***/
+/***👇BEGINNING VERY IMPORTANT LEFT SIDE (WHITE SIDE) MODAL CREATION PART 1***VERY IMPORTANT MODAL CREATION PART 1 BEGINNING👇***/
+
+.modal {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 1100px;
+    height: 700px;    
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    visibility: hidden;
+    /**for causing contact box to blink open and close--refer to toggle section below**/
+    z-index: -1;
+    transition: visibility 1s, z-index 1s, box-shadow 0.5s ease;
+}
+
+.modal__half {
+    width: 50%;
+    padding: 40px 72px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    transition: all 300ms ease-in;
+}
+
+.modal--open .modal__about, 
+.modal--open .modal__contact {
+    transform: translateX(0%);
+}
+.modal__about {
+    background-color: rgb(245, 245, 245); 
+    transform: translateX(-110%);   
+}
+
+.modal__language {
+    width: 25%;
+    padding: 16px;
+/**👇TO CENTER 'HTML', 'CSS', and 'JAVA SCRIPT' under their respective  LOGOS👇**/
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+/**☝️TO CENTER 'HTML', 'CSS', and 'JAVA SCRIPT' under their respective  LOGOS☝️**/
+}
+
+/**👇START OF SO THAT 'HTML', 'CSS', and 'JAVA SCRIPT' CAN ANIMATE/APPEAR WHEN HOVERED OVER START OF👇**/
+.modal__language:hover .language__name {
+    transform: scale(1);
+    transition: all 300ms ease;
+}
+
+.language__name {
+    position: absolute;
+    bottom: -10px;
+    transform: scale(0);
+}
+
+.modal__language:hover {
+    filter: brightness(80%);
+    transform: scale(0.9);
+}
+/**☝️END OF SO THAT 'HTML', 'CSS', and 'JAVA SCRIPT' CAN ANIMATE/APPEAR WHEN HOVERED OVER END OF☝️**/
+
+.modal__languages {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.modal__language--img {
+    width: 100%;
+}
+
+.modal__contact {
+    background-color: #242424;
+    color: white;
+    transform: translateX(110%); 
+}
+
+.modal__title {
+    font-size: 26px;
+}
+
+.modal__sub-title {
+    margin: 12px 0 24px 0;
+    font-size: 14px;
+}
+
+.modal__para {
+    margin-bottom: 12px;
+    line-height: 1.75;
+}
+
+/***☝️END VERY IMPORTANT LEFT SIDE (WHITE SIDE) MODAL CREATION PART 1***VERY IMPORTANT MODAL CREATION PART 1 END☝️***/
+/***☝️END VERY IMPORTANT LEFT SIDE (WHITE SIDE) MODAL CREATION PART 1***VERY IMPORTANT MODAL CREATION PART 1 END☝️***/
+/***☝️END VERY IMPORTANT LEFT SIDE (WHITE SIDE) MODAL CREATION PART 1***VERY IMPORTANT MODAL CREATION PART 1 END☝️***/
+/***☝️END VERY IMPORTANT LEFT SIDE (WHITE SIDE) MODAL CREATION PART 1***VERY IMPORTANT MODAL CREATION PART 1 END☝️***/
+/***☝️END VERY IMPORTANT LEFT SIDE (WHITE SIDE) MODAL CREATION PART 1***VERY IMPORTANT MODAL CREATION PART 1 END☝️***/
+
+
+
+
+/***👇BEGINNING VERY IMPORTANT RIGHT SIDE (BLACK SIDE) MODAL & EMAILS CREATION PART 2***VERY IMPORTANT MODAL CREATION PART 1 BEGINNING👇***/
+/***👇BEGINNING VERY IMPORTANT RIGHT SIDE (BLACK SIDE) MODAL & EMAILS CREATION PART 2***VERY IMPORTANT MODAL CREATION PART 1 BEGINNING👇***/
+/***👇BEGINNING VERY IMPORTANT RIGHT SIDE (BLACK SIDE) MODAL & EMAILS CREATION PART 2***VERY IMPORTANT MODAL CREATION PART 1 BEGINNING👇***/
+/***👇BEGINNING VERY IMPORTANT RIGHT SIDE (BLACK SIDE) MODAL & EMAILS CREATION PART 2***VERY IMPORTANT MODAL CREATION PART 1 BEGINNING👇***/
+/***👇BEGINNING VERY IMPORTANT RIGHT SIDE (BLACK SIDE) MODAL & EMAILS CREATION PART 2***VERY IMPORTANT MODAL CREATION PART 1 BEGINNING👇***/
+
+input, textarea {
+    width: 100%;
+    background-color: #242424;
+    color: #fff;
+    outline: none;
+    border: 3px solid #c0c4cc;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    height: 40px;
+    transition: all 300ms ease;
+}
+
+input:hover, textarea:hover {
+    border-color: #dcefd6;    
+}
+
+input:focus, textarea:focus {
+    border-color: #f06449;
+}
+
+textarea {
+    resize: vertical;
+    height: 100px;
+    padding: 15px;
+    margin-top: 8px;
+}
+
+label {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.form__item {
+    margin-bottom: 20px;
+}
+
+.form__submit {
+    background-color: #f06449;
+    border: 2px solid #f06449;
+    margin-bottom: 60px;
+    color: white;
+    font-weight: 700;
+    width: 100%;
+    max-width: 240px;
+    padding: 12px 24px;
+    font-size: 20px;
+    transition: all 300ms ease;
+}
+
+.form__submit:hover {
+    border-color: #fff;
+    background-color: transparent;
+}
+
+.form__submit:active {
+    border-color: #f06449;
+    color: #f06449;
+}
+
+/**👇BEGINNING EMAILS FROM WEBSITE SECTION👇**/
+.modal__overlay {    
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: -1;    
+}
+
+.modal__overlay--visible {
+    z-index: 1;
+    display: flex;
+}
+
+.modal__overlay--loading {
+   background-color: #242424;    
+   font-size: 80px;   
+}
+
+.modal__overlay--success {
+    background-color: #4bb543;
+    font-size: 28px;
+    font-weight: 700;
+    text-align: center;
+    padding: 28px;
+}
+/**☝️END EMAILS FROM WEBSITE SECTION☝️**/
+
+
+/**FOR SPINNER ON RIGHT SIDE**/
+.fa-spinner {
+    animation: spinner 750ms infinite linear;
+}
+
+@keyframes spinner {
+    0% {
+        transform: rotate(0);
+    }
+    100% {
+        transform: rotate(360deg)    
+    }
+}
+
+.modal__exit {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    color: #fff;
+    font-size: 36px;
+    z-index: 100;
+}
+
+/***☝️END VERY IMPORTANT RIGHT SIDE (BLACK SIDE) MODAL & EMAILS CREATION PART 2***VERY IMPORTANT MODAL CREATION PART 1 END☝️***/
+/***☝️END VERY IMPORTANT RIGHT SIDE (BLACK SIDE) MODAL & EMAILS CREATION PART 2***VERY IMPORTANT MODAL CREATION PART 1 END☝️***/
+/***☝️END VERY IMPORTANT RIGHT SIDE (BLACK SIDE) MODAL & EMAILS CREATION PART 2***VERY IMPORTANT MODAL CREATION PART 1 END☝️***/
+/***☝️END VERY IMPORTANT RIGHT SIDE (BLACK SIDE) MODAL & EMAILS CREATION PART 2***VERY IMPORTANT MODAL CREATION PART 1 END☝️***/
+/***☝️END VERY IMPORTANT RIGHT SIDE (BLACK SIDE) MODAL & EMAILS CREATION PART 2***VERY IMPORTANT MODAL CREATION PART 1 END☝️***/
+
+
+
+
+
+
+/***👇BEGINNING OF TOGGLING MODAL JAVA SCRIPT SECTION BEGINNING OF TOGGLING MODAL JAVA SCRIPT SECTION👇***/
+/***👇BEGINNING OF TOGGLING MODAL JAVA SCRIPT SECTION BEGINNING OF TOGGLING MODAL JAVA SCRIPT SECTION👇***/
+/***👇BEGINNING OF TOGGLING MODAL JAVA SCRIPT SECTION BEGINNING OF TOGGLING MODAL JAVA SCRIPT SECTION👇***/
+/***👇BEGINNING OF TOGGLING MODAL JAVA SCRIPT SECTION BEGINNING OF TOGGLING MODAL JAVA SCRIPT SECTION👇***/
+/***👇BEGINNING OF TOGGLING MODAL JAVA SCRIPT SECTION BEGINNING OF TOGGLING MODAL JAVA SCRIPT SECTION👇***/
+
+/**see other parts of toggle section above**/
+.modal--open .modal {
+    z-index: 60;
+    box-shadow: 0 20px 80px 0 rgb(0, 0, 0.45);
+    visibility: visible;
+}
+
+/***☝️END OF TOGGLING MODAL JAVA SCRIPT SECTION END OF OF TOGGLING MODAL JAVA SCRIPT SECTION☝️***/
+/***☝️END OF TOGGLING MODAL JAVA SCRIPT SECTION END OF OF TOGGLING MODAL JAVA SCRIPT SECTION☝️***/
+/***☝️END OF TOGGLING MODAL JAVA SCRIPT SECTION END OF OF TOGGLING MODAL JAVA SCRIPT SECTION☝️***/
+/***☝️END OF TOGGLING MODAL JAVA SCRIPT SECTION END OF OF TOGGLING MODAL JAVA SCRIPT SECTION☝️***/
+/***☝️END OF TOGGLING MODAL JAVA SCRIPT SECTION END OF OF TOGGLING MODAL JAVA SCRIPT SECTION☝️***/
+
+
+
+/***👇BEGINNING OF DARK MODE SECTION BEGINNING OF DARK MODE SECTION☝️***/
+/***👇BEGINNING OF DARK MODE SECTION BEGINNING OF DARK MODE SECTION☝️***/
+/***👇BEGINNING OF DARK MODE SECTION BEGINNING OF DARK MODE SECTION☝️***/
+/***👇BEGINNING OF DARK MODE SECTION BEGINNING OF DARK MODE SECTION☝️***/
+/***👇BEGINNING OF DARK MODE SECTION BEGINNING OF DARK MODE SECTION☝️***/
+.dark-theme .title,
+.dark-theme .section__title,
+.dark-theme .section__sub-title,
+.dark-theme .nav__link--anchor,
+.dark-theme .fa-solid,
+.dark-theme .header__para {
+color: white;
+}
+
+.dark-theme section {
+    background-color: #242424;
+}
+
+.dark-theme #personal-logo {
+    filter: none;
+}
+
+.dark-theme .scroll__icon {
+    border-color: white;
+}
+
+.dark-theme .scroll__icon:after {
+    background-color: white;
+}
+
+.dark-theme .scroll__icon:after,
+.dark-theme .link__hover-effect--black:after {
+    background-color: white;
+}
+
+.dark-theme .mail__btn {
+    background-color: white;
+    color: #242424;
+}
+/***☝️END OF DARK MODE SECTION END OF DARK MODE SECTION☝️***/
+/***☝️END OF DARK MODE SECTION END OF DARK MODE SECTION☝️***/
+/***☝️END OF DARK MODE SECTION END OF DARK MODE SECTION☝️***/
+/***☝️END OF DARK MODE SECTION END OF DARK MODE SECTION☝️***/
+/***☝️END OF DARK MODE SECTION END OF DARK MODE SECTION☝️***/
+
+
+
+
+/***👇BEGINNING OF BACKGROUND SHAPES SECTION BEGINNING OF BACKGROUND SHAPES SECTION👇***/
+/***👇BEGINNING OF BACKGROUND SHAPES SECTION BEGINNING OF BACKGROUND SHAPES SECTION👇***/
+/***👇BEGINNING OF BACKGROUND SHAPES SECTION BEGINNING OF BACKGROUND SHAPES SECTION👇***/
+/***👇BEGINNING OF BACKGROUND SHAPES SECTION BEGINNING OF BACKGROUND SHAPES SECTION👇***/
+/***👇BEGINNING OF BACKGROUND SHAPES SECTION BEGINNING OF BACKGROUND SHAPES SECTION👇***/
+.shape {
+    position: fixed;
+}
+
+.shape--0 {
+    top: 15vh;
+    left: 5vw;
+}
+
+.shape--1 {
+    top: 15vh;
+    left: 50vw;
+}
+
+.shape--2 {
+    top: 15vh;
+    left: 80vw;
+}
+
+.shape--3 {
+    top: 50vh;
+    left: 5vw;
+}
+
+.shape--4 {
+    top: 50vh;
+    left: 50vw;
+}
+
+.shape--5 {
+    top: 50vh;
+    left: 80vw;
+}
+
+.shape--6 {
+    top: 80vh;
+    left: 5vw;
+}
+
+.shape--7 {
+    top: 80vh;
+    left: 50vw;
+}
+
+.shape--8 {
+    top: 80vh;
+    left: 80vw;
+}
+/***☝️END OF BACKGROUND SHAPES SECTION END OF BACKGROUND SHAPES SECTION☝️***/
+/***☝️END OF BACKGROUND SHAPES SECTION END OF BACKGROUND SHAPES SECTION☝️***/
+/***☝️END OF BACKGROUND SHAPES SECTION END OF BACKGROUND SHAPES SECTION☝️***/
+/***☝️END OF BACKGROUND SHAPES SECTION END OF BACKGROUND SHAPES SECTION☝️***/
+/***☝️END OF BACKGROUND SHAPES SECTION END OF BACKGROUND SHAPES SECTION☝️***/
+
+
+
+
+
+/***👇BEGINNING OF RESPONSIVENESS (SMARTPHONE-, IPAD-, LAPTOP-, DESKTOP-FRIENDLY) SECTION👇***/
+/***👇BEGINNING OF RESPONSIVENESS (SMARTPHONE-, IPAD-, LAPTOP-, DESKTOP-FRIENDLY) SECTION👇***/
+/***👇BEGINNING OF RESPONSIVENESS (SMARTPHONE-, IPAD-, LAPTOP-, DESKTOP-FRIENDLY) SECTION👇***/
+/***👇BEGINNING OF RESPONSIVENESS (SMARTPHONE-, IPAD-, LAPTOP-, DESKTOP-FRIENDLY) SECTION👇***/
+/***👇BEGINNING OF RESPONSIVENESS (SMARTPHONE-, IPAD-, LAPTOP-, DESKTOP-FRIENDLY) SECTION👇***/
+
+/*small phones, tablets, large smartphones*/
+@media (max-width: 768px) {
+    .title {
+        font-size: 80px;
+    }
+    .header__para {
+        font-size: 20px;
+    }
+    .modal {
+        top: 0;
+        left: 0;
+        transform: none;
+        height: auto;
+        width: 100%;
+        flex-direction: column-reverse;
+        border-radius: 0;
+    }
+    .modal__half {        
+        width: 100%;
+    }
+}
+
+/*small phones*/
+@media (max-width: 480px) {
+    .title {
+        font-size: 82px;
+    }
+    .header__para {
+        font-size: 18px;
+    }
+    /*meaning just the first child (the first of the nav__links)*/
+    .nav__link:first-child {
+        display: none;
+    }
+    .project__description-- {
+        display: none;
+    }
+    .project__description {
+        left: 0;
+        padding: 0;
+        width: 100%;
+        text-align: center;
+    }
+    .project__description--sub-title {
+        margin-bottom: 8px;
+    }
+    .modal__half {
+        padding: 40px;
+    }
+}
+
+
+
+/***☝️END OF RESPONSIVENESS (SMARTPHONE-, IPAD-, LAPTOP-, DESKTOP-FRIENDLY) SECTION☝️***/
+/***☝️END OF RESPONSIVENESS (SMARTPHONE-, IPAD-, LAPTOP-, DESKTOP-FRIENDLY) SECTION☝️***/
+/***☝️END OF RESPONSIVENESS (SMARTPHONE-, IPAD-, LAPTOP-, DESKTOP-FRIENDLY) SECTION☝️***/
+/***☝️END OF RESPONSIVENESS (SMARTPHONE-, IPAD-, LAPTOP-, DESKTOP-FRIENDLY) SECTION☝️***/
+/***☝️END OF RESPONSIVENESS (SMARTPHONE-, IPAD-, LAPTOP-, DESKTOP-FRIENDLY) SECTION☝️***/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

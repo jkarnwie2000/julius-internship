@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karnwie's Golden Websites</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="index.js"></script>
+    <script src="https://kit.fontawesome.com/f23afc0fcf.js" crossorigin="anonymous"></script>
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+    (function(){
+      emailjs.init({
+        publicKey: "476QBa57rXxhABYJa",
+      });
+   })();
+</script>
+</head>
+<body>
+   <section id="landing-page" onmousemove="moveBackground(event)">
+    <nav>
+        <figure>
+            <img id="personal-logo" src="./PROJECT 1/assets/logo1.png" alt="">
+        </figure>
+        <ul class="nav__link--list">
+            <li class="nav__link" onclick="toggleModal()">
+                <a href="#" class="
+                nav__link--anchor
+                link__hover-effect
+                link__hover-effect--black       
+                ">About</a>
+            </li>
+            <li class="nav__link click">
+                <a href="#" class="
+                nav__link--anchor
+                link__hover-effect
+                link__hover-effect--black       
+                ">Projects</a>
+            </li>
+            <li class="nav__link click" onclick="toggleModal()">
+                <a href="#" class="
+                nav__link--anchor
+                link__hover-effect
+                link__hover-effect--black       
+                ">Contact</a>
+            </li>            
+            <li class="nav__link click" onclick="toggleContrast()">
+                <a href="#" class="
+                nav__link--anchor
+                link__hover-effect
+                link__hover-effect--black       
+                "><i class="fa-solid fa-circle-half-stroke"></i></a>
+            </li>
+        </ul>
+    </nav>
+    <header class="header">
+        <div class="header__content">
+            <h1 class="title">Hey,</h1>
+            <h1 class="title orange">I'm Julius Gold!</h1>
+            <p class="header__para">
+                <b class="orange">Welcome to Karnwie's Golden Websites!</b> <br>Here, we build awesome websites that satisfy your every taste and drive clients to your business.<br> 
+                <b class="orange click" onclick="toggleModal()">Learn more below and click the<br> envelope to send us a message! </b> Cheers😊.
+            </p>
+            <div class="social__list">
+                <a href="https://www.linkedin.com/jobs/" target="_blank" class="social__link click">
+                    <i class="fa-brands fa-linkedin-in"></i>
+                </a>
+                <a href="https://github.com/jkarnwie2000/Java-Script-Crash-Course/settings/pages" target="_blank" class="social__link click">
+                    <i class="fa-brands fa-github"></i>
+                </a>                
+            </div>
+        </div>
+    </header>
+    <a href="#">
+    <button class="mail__btn click" onclick="toggleModal()">
+        <i class="fas fa-envelope"></i>
+    </button>
+    </a>
+    <a href="#projects" class="scroll">
+        <div class="scroll__icon click"></div>    
+    </a>
+
+    <div class="modal">
+        <div class="modal__half modal__about">
+            <h3 class="modal__title modal__title--about">Here's a bit about us:</h3>
+            <h4 class="modal__sub-title modal__sub-title--about">CEO, Julius Gunser Karnwie (Julius Gold): Author and Frontend Developer</h4>
+            <p class="modal__para">
+               <b> <span class="orange">
+                Based in the Unted States, we build websites that drive traffic to your business, nonprofit organization, or professional portfolio. For a digital
+                presence that draws 80% of online shoppers to your business, nonprofit cause, or personal brand, send us a message to 
+                start your Golden Website project. We are here to listen and give you the best service. Thanks for entrusting Karnwie's Golden Websites with your web development needs.
+                </span> </b>
+            </p>
+            <div class="modal__languages">
+                <figure class="modal__language">
+                    <img class="modal__language--img" src="/PROJECT 1/assets/icons8-html-5-100.png" alt="">
+                <span class="language__name">HTML</span>
+                </figure>            
+                <figure class="modal__language">
+                    <img class="modal__language--img" src="https://cdn.iconscout.com/icon/free/png-256/css-131-722685.png" alt="">
+                <span class="language__name">CSS</span>
+                </figure>            
+                <figure class="modal__language">
+                    <img class="modal__language--img" src="https://cdn.iconscout.com/icon/free/png-256/javascript-1-225993.png" alt="">
+                <span class="language__name">Java Script</span>
+                </figure>             
+                <figure class="modal__language">
+                    <img class="modal__language--img" src="/PROJECT 1/assets/icons8-react-100.png" alt="">
+                <span class="language__name">React</span>
+                </figure>             
+                <figure class="modal__language">
+                    <img class="modal__language--img" src="/PROJECT 1/assets/icons8-nextjs-96.png" alt="">
+                <span class="language__name">Next.js</span>
+                </figure>             
+            </div>
+        </div>
+        <div class="modal__half modal__contact">
+            <i class="fas fa-times modal__exit click" onclick="toggleModal()"></i>
+            <h3 class="modal__title modal__title--contact">
+                Send me a message!
+            </h3>
+            <h3 class="modal__sub-title modal__sub-title--conact">
+                <b> <span class="orange">Your wish is my command!</span></b>
+            </h3>
+            <form id="contact__form" onsubmit="contact(event)">
+                <div class="form__item">
+                    <label class="form__item--label">Name</label>
+                    <input class="input" name="user_name"  type="text"></input>                    
+                </div>
+                <div class="form__item">
+                    <label class="form__item--label">Email</label>
+                    <input class="input" name="user_email"  type="email"></input>
+                </div>
+                <div class="form__item">
+                    <label class="form__item--label">Message</label>
+                    <textarea class="input" name="message" type="text"></textarea>
+                </div>
+                <button id="contact__submit" class="form__submit">
+                    Send it my way
+                </button>
+            </form>
+            <div class="modal__overlay modal__overlay--loading">
+                <i class="fas fa-spinner"></i>
+            </div>
+            <div class="modal__overlay modal__overlay--success">
+                Thanks for the message!<br>Looking forward to<br>speaking with you soon.
+            </div>
+        </div>       
+    </div>
+        <img src="./PROJECT 1/assets/semi circle.svg" class="shape shape--0">
+        <img src="./PROJECT 1/assets/circle.svg" class="shape shape--1">
+        <img src="./PROJECT 1/assets/squiggly.svg" class="shape shape--2">
+        <img src="./PROJECT 1/assets/circle.svg" class="shape shape--3">
+        <img src="./PROJECT 1/assets/triangle.svg" class="shape shape--4">
+        <img src="./PROJECT 1/assets/circle.svg" class="shape shape--5">
+        <img src="./PROJECT 1/assets/squiggly.svg" class="shape shape--6">
+        <img src="./PROJECT 1/assets/circle.svg" class="shape shape--7">
+        <img src="./PROJECT 1/assets/semi circle.svg" class="shape shape--8">
+   </section>
+
+   <section id="projects">
+
+    <div class="container">
+        <div class="row">
+        <h1 class="section__title">
+            Check out these<span class="orange"> Golden Projects!</span>
+        </h1>
+        <ul class="project__list">
+            <li class="project">
+                <div class="project__wrapper">
+                    <img src="./PROJECT 1/assets/freepik_0001.png" class="project__img" alt="">
+                <div class="project__wrapper--bg"></div>
+                    <div class="project__description">
+                    <h3 class="project__description--title">
+                        Books e-commerce website
+                    </h3>
+                    <h4 class="project__description--sub-title">
+                       HTML, CSS, JavaScript, React, Next.js
+                    </h4>
+                    <p class="project__description--para">
+                        This online bookstore features a homepage with Featured Books and Discount Books sections, a books page that 
+                        holds a repository of your favorite books, a book-info page that provides a summary of your selected book, and a check out 
+                        page for completing your purchase. A payment portal will be added at your request.                         
+                        <br><br> Click the envelope at the lower-right corner of this page to send us a message.
+                        <br><br> And click the knot below to see this website.
+                        <br>
+                    </p>
+                    <div class="project__description--links">
+                        <!-- <a href="" class="project__description--link">
+                          <i class="fa-brands fa-github"></i>   -->
+                        <a href="https://react-good-ecommerce-1tutorial.vercel.app/books" target="_blank" class="project__description--link">
+                          <i class="fas fa-link"></i>  
+                        </a>
+                    </div>
+                </div>
+                </div>
+            </li>
+        </ul>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <div class="row">
+                <ul class="project__list">
+            <li class="project">
+                <div class="project__wrapper">
+                    <img src="./PROJECT 1/assets/freepik_0001 4.png" class="project__img" alt="">
+                <div class="project__wrapper--bg"></div>
+                    <div class="project__description">
+                    <h3 class="project__description--title">
+                        Nonprofit website
+                    </h3>
+                    <h4 class="project__description--sub-title">
+                        HTML, CSS, JavaScript, React, Next.js
+                    </h4>
+                    <p class="project__description--para">
+                        This nonprofit website features three homepages, each containing vibrant messages and images that slide across the page;
+                        an about us page, which highlights information about the organization's vision and mission; two causes pages, two events pages, two blog pages,
+                        an online store, a product details page, and a contact us page. A payment portal will be added at your request.
+                        <br><br> Click the envelope at the lower-right corner of this page to send us a message.
+                        <br><br> And click the knot below to see this website.
+                        <br>
+                    </p>
+                    <div class="project__description--links">
+                        <!-- <a href="" class="project__description--link">
+                          <i class="fa-brands fa-github"></i>   -->
+                        <a href="https://ophelia-charity00-ngo.vercel.app/" target="_blank" class="project__description--link">
+                          <i class="fas fa-link"></i>  
+                        </a>
+                    </div>
+                </div>
+                </div>
+            </li>
+        </ul>
+        </div>
+    </div>    
+    
+    <div class="container">
+        <div class="row">        
+        <ul class="project__list">
+            <li class="project">
+                <div class="project__wrapper">
+                    <img src="./PROJECT 1/assets/freepik_0006.png" class="project__img" alt="">
+                <div class="project__wrapper--bg"></div>
+                    <div class="project__description">
+                    <h3 class="project__description--title">
+                        Netflix clone website
+                    </h3>
+                    <h4 class="project__description--sub-title">
+                        HTML, CSS, JavaScript, React, Next.js
+                    </h4>
+                    <p class="project__description--para">
+                        This Netflix clone website is a simulation that stands out in our portfolio. This is a React project.                          
+                        <br><br> Click the envelope at the lower-right corner of this page to send us a message.
+                        <br><br> And click the knot below to see this website.
+                        <br>
+                    </p>
+                    <div class="project__description--links">
+                        <!-- <a href="" class="project__description--link">
+                          <i class="fa-brands fa-github"></i>   -->
+                        <a href="https://netflix-clone-practice-diamonds-j7tfkg6b0.vercel.app/#features" target="_blank" class="project__description--link">
+                          <i class="fas fa-link"></i>  
+                        </a>
+                    </div>
+                </div>
+                </div>
+            </li>
+        </ul>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="row">
+        
+        <ul class="project__list">
+            <li class="project">
+                <div class="project__wrapper">
+                    <img src="./PROJECT 1/assets/freepik_0005.png" class="project__img" alt="">
+                <div class="project__wrapper--bg"></div>
+                    <div class="project__description">
+                    <h3 class="project__description--title">
+                        Treact Inc. portfolio website
+                    </h3>
+                    <h4 class="project__description--sub-title">
+                        HTML, CSS, JavaScript, React, Next.js
+                    </h4>
+                    <p class="project__description--para">
+                        This Treact Inc. portfolio website includes a homepage that features the web design 
+                        services offered by this company with Features, Quality Work, Steps, Values,
+                        Pricing, and Testimonials sections; an about page, a blog page, a contact page, 
+                        and sign-up and log-in links. A payment portal will be added at your request.                       
+                        <br><br> Click the envelope at the lower-right corner of this page to send us a message.
+                        <br><br> And click the knot below to see this website.
+                        <br>
+                    </p>
+                    <div class="project__description--links">
+                        <!-- <a href="" class="project__description--link">
+                          <i class="fa-brands fa-github"></i>   -->
+                        <a href="https://treact-project1.vercel.app/" class="project__description--link" target="_blank">
+                          <i class="fas fa-link"></i>  
+                        </a>
+                    </div>
+                </div>
+                </div>
+            </li>
+        </ul>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+        
+        <ul class="project__list">
+            <li class="project">
+                <div class="project__wrapper">
+                    <img src="./PROJECT 1/assets/freepik_0007.png" class="project__img" alt="">
+                <div class="project__wrapper--bg"></div>
+                    <div class="project__description">
+                    <h3 class="project__description--title">
+                        Ultraverse NFT World website
+                    </h3>
+                    <h4 class="project__description--sub-title">
+                        HTML, CSS, JavaScript, React, Next.js
+                    </h4>
+                    <p class="project__description--para">
+                        Built in React, the Ultraverse NFT World website features a home page and an explore 
+                        page showcasing works by different creators. Click an artwork 
+                        to see its owner, creator, and price, and hit the artist's or owner's image thumbnail to
+                        see their details. This smooth browsing and navigation experience is the signature excellence 
+                        of our latest portfolio website. A payment portal will be added at your request.          
+                        <br><br> Click the envelope at the lower-right corner of this page to send us a message.
+                        <br><br> And click the knot below to see this website.
+                        <br>
+                    </p>
+                    <div class="project__description--links">
+                        <!-- <a href="" class="project__description--link">
+                          <i class="fa-brands fa-github"></i>   -->
+                        <a href="https://julius-internship-excellentgold.vercel.app/" class="project__description--link" target="_blank">
+                          <i class="fas fa-link"></i>  
+                        </a>
+                    </div>
+                </div>
+                </div>
+            </li>
+        </ul>
+        </div>
+    </div>
+
+   </section>
+   <footer>
+    <div class="container">
+        <div class="row footer__row">
+    <figure>
+        <img class="footer__logo--img" src="./PROJECT 1/assets/footerlogo.png" class="footer__logo" alt="">
+    </figure>
+    <div class="footer__social--list">
+        <a href="https://github.com/jkarnwie2000/Java-Script-Crash-Course/settings/pages" target="_blank" class="
+        footer__social--link
+        link__hover-effect
+        link__hover-effect--white
+        ">
+        GitHub   
+    </a>
+        <a href="https://www.linkedin.com/jobs/" target="_blank" class="
+        footer__social--link
+        link__hover-effect
+        link__hover-effect--white
+        ">
+        LinkedIn   
+    </a>
+        <a href="#" onclick="toggleModal()" class="
+        footer__social--link
+        link__hover-effect
+        link__hover-effect--white
+        ">
+        Email   
+    </a>
+    
+    </div>
+    <div class="footer__copyright">Copyright © 2026 Karnwie's Golden Websites</div>
+    </div>
+    </div>
+   </footer>
+</body>
+</html>

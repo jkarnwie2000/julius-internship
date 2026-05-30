@@ -1,36 +1,36 @@
 {
-  "name": "nft-marketplace",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@testing-library/jest-dom": "^5.16.2",
-    "@testing-library/react": "^12.1.4",
-    "@testing-library/user-event": "^13.5.0",
-    "aos": "^3.0.0-beta.6",
-    "axios": "^1.15.2",
-    "firebase": "^9.8.4",
-    "jquery": "^4.0.0",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-icons": "^4.3.1",
-    "react-owl-carousel": "^2.3.3",
-    "react-router-dom": "^6.2.2",
-    "react-scripts": "5.0.0",
-    "react-slick": "^0.31.0",
-    "slick-carousel": "^1.8.1",
-    "web-vitals": "^2.1.4"
-  },
+  "name": "julius-internship",
+  "version": "1.0.0",
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "main": "index.js",
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "CI= react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jkarnwie2000/julius-internship.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jkarnwie2000/julius-internship/issues"
+  },
+ 
+  "dependencies": {
+    "aos": "^2.3.4",
+    "axios": "^1.16.0",
+    "react": "^19.2.6",
+    "react-dom": "^19.2.6",
+    "react-icons": "^5.6.0",
+    "react-router-dom": "^7.15.0",
+    "react-scripts": "^5.0.1",
+    "react-slick": "^0.31.0",
+    "slick-carousel": "^1.8.1",
+    "web-vitals": "^5.2.0"
   },
   "browserslist": {
     "production": [
